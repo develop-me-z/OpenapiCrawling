@@ -1,5 +1,6 @@
 package com.crawl.openapi.web.dto;
 
+
 import com.crawl.openapi.domain.posts.Posts;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,7 +12,6 @@ public class PostsSaveRequestDto {
     private String title;
     private String content;
     private String author;
-
     @Builder
     public PostsSaveRequestDto(String title, String content, String author){
         this.title = title;
@@ -19,7 +19,7 @@ public class PostsSaveRequestDto {
         this.author = author;
     }
 
-    public Posts toEntity() {
+    public Posts toEntity(){
         return Posts.builder()
                 .title(title)
                 .content(content)
@@ -27,3 +27,4 @@ public class PostsSaveRequestDto {
                 .build();
     }
 }
+

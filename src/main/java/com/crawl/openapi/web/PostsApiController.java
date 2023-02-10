@@ -1,6 +1,6 @@
 package com.crawl.openapi.web;
 
-import com.crawl.openapi.service.posts.PostsService;
+import com.crawl.openapi.service.PostsService;
 import com.crawl.openapi.web.dto.PostsSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

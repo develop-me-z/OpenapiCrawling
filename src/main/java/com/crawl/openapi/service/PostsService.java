@@ -1,4 +1,4 @@
-package com.crawl.openapi.service.posts;
+package com.crawl.openapi.service;
 
 import com.crawl.openapi.domain.posts.PostsRepository;
 import com.crawl.openapi.web.dto.PostsSaveRequestDto;
@@ -13,7 +13,7 @@ public class PostsService {
     private final PostsRepository postsRepository;
 
     @Transactional
-    public Long save(PostsSaveRequestDto requestDto){
+    public Long save(PostsSaveRequestDto requestDto) {
         return postsRepository.save(requestDto.toEntity()).getId();
     }
 }

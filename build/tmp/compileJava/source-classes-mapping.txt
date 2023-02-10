@@ -1,0 +1,8 @@
+com/crawl/openapi/domain/BaseTimeEntity.java
+ com.crawl.openapi.domain.BaseTimeEntity
+com/crawl/openapi/Application.java
+ com.crawl.openapi.Application
+com/crawl/openapi/domain/posts/PostsRepository.java
+ com.crawl.openapi.domain.posts.PostsRepository
+com/crawl/openapi/domain/posts/Posts.java
+ com.crawl.openapi.domain.posts.Posts
