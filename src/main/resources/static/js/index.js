@@ -1,9 +1,6 @@
 var main = {
     init : function () {
         var _this = this;
-        $('#btn-save').on('click', function () {
-            _this.save();
-        });
 
         $('#btn-update').on('click', function () {
             _this.update();
@@ -12,17 +9,25 @@ var main = {
         $('#btn-delete').on('click', function () {
             _this.delete();
         });
+
+        $('#btnSave').on('click', function(){
+            _this.save();
+        });
     },
     save : function () {
         var data = {
-            title: $('#title').val(),
-            author: $('#author').val(),
-            content: $('#content').val()
+            basin: $('#basin option:selected').val(),
+            oper: $('#oper option:selected').val(),
+            mngorg: $('#mngorg option:selected').val(),
+            obsknd: $('#obsknd option:selected').val(),
+            keynm: $('#keynm').val(),
+            sort: $('#sort option:selected').val(),
+            output: $('#output option:selected').val()
         };
 
         $.ajax({
             type: 'POST',
-            url: '/api/v1/posts',
+            url: '/rf/save/w1',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)

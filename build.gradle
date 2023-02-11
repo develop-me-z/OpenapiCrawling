@@ -35,7 +35,8 @@ dependencies {
     //compile('org.springframework.session:spring-session-jdbc')
 
     compile("org.mariadb.jdbc:mariadb-java-client")
-
+    implementation 'org.jsoup:jsoup:1.14.2' //html 가져옴
+    implementation group:'com.googlecode.json-simple', name:'json-simple',version:'1.1.1'
     testCompile('org.springframework.boot:spring-boot-starter-test')
    // testCompile("org.springframework.security:spring-security-test")
 }
