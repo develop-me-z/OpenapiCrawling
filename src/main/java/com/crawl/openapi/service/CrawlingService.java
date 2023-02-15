@@ -8,46 +8,52 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.Node;
 
 import javax.annotation.PostConstruct;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.StringWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 @Service
 public class CrawlingService {
 
-    private static String RfW1_URL = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/rf_dubrfobs";
+    //private static String RfW1_URL = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/rf_dubrfobs";
 
     @PostConstruct
-    public void getRfW1Data() throws Exception {
-        Document doc = Jsoup.connect(RfW1_URL).ignoreContentType(true).get();
-        Elements contents = doc.select("body");
+    public String getRfW1Data() throws Exception {
+        StringBuilder result = new StringBuilder();
+        StringBuffer reult = new StringBuffer();
+        String urlStr = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/rf_dubrfobs";
 
-        Crawler(toString(doc));
+        URL url = new URL(urlStr);
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        urlConnection.setRequestMethod("GET");
+        BufferedReader br;
+        br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(),"UTF-8"));
 
-        // System.out.println(track.size());
-    }
+        String returnLine;
 
-    public static String toString(Document doc) {
-        try {
-            StringWriter sw = new StringWriter();
-            TransformerFactory tf = TransformerFactory.newInstance();
-            Transformer transformer = tf.newTransformer();
-            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
-            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
-
-            transformer.transform(new DOMSource(doc), new StreamResult(sw));
-            return sw.toString();
-        } catch (Exception ex) {
-            throw new RuntimeException("Error converting to String", ex);
+        while((returnLine = br.readLine()) != null){
+            result.append(returnLine+"\n\r");
         }
+        urlConnection.disconnect();
+        System.out.println(result.toString());
+        Crawler(result.toString());
+
+        return result.toString();
+
+        //Document doc = Jsoup.connect(RfW1_URL).ignoreContentType(true).get();
+        //Elements contents = doc.select("body");
+        // Crawler(doc);
+        // System.out.println(track.size());
     }
 
     public void Crawler(String str) throws Exception {
@@ -57,18 +63,17 @@ public class CrawlingService {
         for(int i=0; i<lists.size(); i++){
             JSONObject listbody= (JSONObject) lists.get(i);
 
-            JSONArray bbsnm = (JSONArray) listbody.get("bbsnm");
-            JSONArray obscd = (JSONArray) listbody.get("obscd");
-            JSONArray obsnm = (JSONArray) listbody.get("obsnm");
-            JSONArray clsyn = (JSONArray) listbody.get("clsyn");
-            JSONArray obsknd = (JSONArray) listbody.get("obsknd");
-            JSONArray sbsncd = (JSONArray) listbody.get("sbsncd");
-            JSONArray mngorg = (JSONArray) listbody.get("mngorg");
+            String bbsnnm = (String) listbody.get("bbsnnm");
+            String obscd = (String) listbody.get("obscd");
+            String obsnm = (String) listbody.get("obsnm");
+            String clsyn = (String) listbody.get("clsyn");
+            String obsknd = (String) listbody.get("obsknd");
+            String sbsncd = (String) listbody.get("sbsncd");
+            String mngorg = (String) listbody.get("mngorg");
 
-            // CrawlingRequestDto dto = new CrawlingRequestDto(bbsnm.toString(), obscd.toString(), obsnm.toString(), clsyn.toString(), obsknd.toString(), sbsncd.toString(), mngorg.toString());
-            System.out.println(bbsnm);
-            System.out.println(obscd);
-            System.out.println(obsnm);
+            //todo
+            // 엑셀 다운로드 만들기
+            //CrawlingRequestDto dto = new CrawlingRequestDto(bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg);
         }
     }
 
