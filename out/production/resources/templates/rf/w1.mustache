@@ -1,4 +1,4 @@
-{{>layout/header}}
+{{>../layout/header}}
 
 <div class="sub-title">
     <h4>강수량 관측소 검색</h4>
@@ -56,4 +56,32 @@
     <input id="btnSave" type="button" class="btn btn-primary" style="margin-left:10px;" value="데이터 저장"/>
 </div>
 
-{{>layout/footer}}
+<!--목록 출력 영역-->
+<table class="table table-horizontal table-bordered">
+    <thead class="thead-strong">
+    <tr>
+        <th>대권역명</th>
+        <th>운영여부</th>
+        <th>관할기관</th>
+        <th>관측소코드</th>
+        <th>관측방법</th>
+        <th>관측소명</th>
+        <th>표준유역코드</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    {{#data}}
+        <tr>
+            <td>{{bbsnnm}}</td>
+            <td>{{clsyn}}</td>
+            <td>{{mngorg}}</td>
+            <td>{{obscd}}</td>
+            <td>{{obsknd}}</td>
+            <td>{{obsnm}}</td>
+            <td>{{sbsncd}}</td>
+        </tr>
+    {{/data}}
+    </tbody>
+</table>
+
+{{>../layout/footer}}

@@ -1,5 +1,6 @@
 package com.crawl.openapi.service;
 
+import com.crawl.openapi.web.dto.CrawlingRequestDto;
 import com.opencsv.CSVWriter;
 
 import org.json.simple.JSONArray;
@@ -13,14 +14,16 @@ import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CrawlingService {
 
     @PostConstruct
-    public String getRfW1Data() throws Exception {
+    public List<CrawlingRequestDto> getRfW1Data() throws Exception {
         StringBuilder result = new StringBuilder();
-        StringBuffer reult = new StringBuffer();
+
         String urlStr = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/rf_dubrfobs";
 
         URL url = new URL(urlStr);
@@ -35,18 +38,19 @@ public class CrawlingService {
             result.append(returnLine+"\n\r");
         }
         urlConnection.disconnect();
-        System.out.println(result.toString());
-        Crawler(result.toString());
 
-        return result.toString();
+        List<CrawlingRequestDto> crawlingRequestDtoList = Crawler(result.toString());
+
+        return crawlingRequestDtoList;
     }
 
-    public void Crawler(String str) throws Exception {
+    public List<CrawlingRequestDto> Crawler(String str) throws Exception {
         JSONParser jsonParser = new JSONParser();
         JSONObject jsonObject = (JSONObject) jsonParser.parse(str);
         JSONArray lists = (JSONArray) jsonObject.get("list");
+        List<CrawlingRequestDto> crawlingRequestDtoList = new ArrayList<>();
 
-        CSVWriter writer = new CSVWriter(new FileWriter("./src/main/resources/static/csv/rfw1.csv"));
+        //CSVWriter writer = new CSVWriter(new FileWriter("./src/main/resources/static/csv/rfw1.csv"));
 
         for(int i=0; i<lists.size(); i++){
             JSONObject listbody= (JSONObject) lists.get(i);
@@ -60,12 +64,14 @@ public class CrawlingService {
             String mngorg = (String) listbody.get("mngorg");
 
             //todo
-            // 엑셀 다운로드 만들기
-            // CrawlingRequestDto dto = new CrawlingRequestDto(bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg);
-            // CSVWriterBuilder builder = new CSVWriterBuilder(dto);
-            writer.writeNext(new String[] {bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg});
+            // 뷰단에서 조회 -> 다운로드하면 받아지게 만들기
+            CrawlingRequestDto dto = new CrawlingRequestDto(bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg);
+            crawlingRequestDtoList.add(dto);
+
+            //writer.writeNext(new String[] {bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg});
         }
-        writer.close();
+        return crawlingRequestDtoList;
+        //writer.close();
     }
 
 
