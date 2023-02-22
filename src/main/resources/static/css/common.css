@@ -42,3 +42,13 @@ div label {
     border: 1px solid;
     border-radius: 13px;
 }
+
+.saveBox {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: right;
+}
+
+table {
+    text-align: center;
+}

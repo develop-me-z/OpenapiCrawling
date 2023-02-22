@@ -24,7 +24,12 @@ public class RfController {
     private final CrawlingService crawlingService;
 
     @GetMapping("/w1")
-    public String w1() {return "rf/w1";}
+    public String w1(Model model) throws Exception {
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfW1Data();
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "rf/w1";
+    }
 
     @SneakyThrows
     @PostMapping("/save/w1")
