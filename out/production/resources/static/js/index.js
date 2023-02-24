@@ -13,8 +13,12 @@ var main = {
         $('#btnSave').on('click', function(){
             _this.save();
         });
+
+        $('#btnSearch').on('click', function(){
+            _this.search();
+        });
     },
-    save : function () {
+    search : function () {
         var data = {
             basin: $('#basin option:selected').val(),
             oper: $('#oper option:selected').val(),
@@ -24,6 +28,25 @@ var main = {
             sort: $('#sort option:selected').val(),
             output: $('#output option:selected').val()
         };
+
+        $.ajax({
+            type: 'POST',
+            url: '/rf/search/w1',
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            success: function(data){
+
+            }
+        }).done(function() {
+            alert('글이 등록되었습니다.');
+            window.location.href = '/';
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+    save : function () {
+        var data = {};
 
         $.ajax({
             type: 'POST',

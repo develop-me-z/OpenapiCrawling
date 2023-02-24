@@ -25,7 +25,19 @@ public class RfController {
 
     @GetMapping("/w1")
     public String w1(Model model) throws Exception {
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfW1Data();
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfW1Data(dto);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "rf/w1";
+    }
+
+    @SneakyThrows
+    @PostMapping("/search/w1")
+    public String searchRfW1Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfW1Data(param);
         model.addAttribute("data", crawlingRequestDtoList);
 
         return "rf/w1";
@@ -35,7 +47,9 @@ public class RfController {
     @PostMapping("/save/w1")
     public String getRfW1Data(Model model) throws Exception {
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfW1Data();
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfW1Data(dto);
         model.addAttribute("data", crawlingRequestDtoList);
 
         return "rf/w1";

@@ -20,11 +20,11 @@ import java.util.List;
 @Service
 public class CrawlingService {
 
-    @PostConstruct
-    public List<CrawlingRequestDto> getRfW1Data() throws Exception {
+    //@PostConstruct
+    public List<CrawlingRequestDto> getRfW1Data(CrawlingRequestDto param) throws Exception {
         StringBuilder result = new StringBuilder();
 
-        String urlStr = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/rf_dubrfobs";
+        String urlStr = paramUrl(param);
 
         URL url = new URL(urlStr);
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -42,6 +42,51 @@ public class CrawlingService {
         List<CrawlingRequestDto> crawlingRequestDtoList = Crawler(result.toString());
 
         return crawlingRequestDtoList;
+    }
+
+    public String paramUrl(CrawlingRequestDto param){
+
+        String urlStr = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/rf_dubrfobs?";
+
+        String basin = param.getBasin();
+        String oper = param.getOper();
+        String mngorg = param.getMngorg();
+        String obsknd = param.getObsknd();
+        String keynm = param.getKeynm();
+        String SORT = param.getSort();
+        String output = param.getOutput();
+
+        // if(basin!=null || !"".equals(basin)) urlStr += "&basin="+basin;
+        // if(oper!=null || !"".equals(oper)) urlStr += "&oper="+oper;
+        // if(mngorg!=null || !"".equals(mngorg)) urlStr += "&mngorg="+mngorg;
+        // if(obsknd!=null || !"".equals(obsknd)) urlStr += "&obsknd="+obsknd;
+        // if(keynm!=null || !"".equals(keynm)) urlStr += "&keynm="+keynm;
+        // if(sort!=null || !"".equals(sort)) urlStr += "&sort="+sort;
+        // if(output!=null || !"".equals(output)) urlStr += "&output="+output;
+
+        if(basin!=null){
+            if(!"".equals(basin)) urlStr += "&basin="+basin;
+        }
+        if(oper!=null) {
+            if(!"".equals(oper)) urlStr += "&oper="+oper;
+        }
+        if(mngorg!=null) {
+            if(!"".equals(mngorg)) urlStr += "&mngorg="+mngorg;
+        }
+        if(obsknd!=null) {
+            if(!"".equals(obsknd)) urlStr += "&obsknd="+obsknd;
+        }
+        if(keynm!=null) {
+            if(!"".equals(keynm)) urlStr += "&keynm="+keynm;
+        }
+        if(SORT!=null) {
+            if(!"".equals(SORT)) urlStr += "&sort="+SORT;
+        }
+        if(output!=null) {
+            if(!"".equals(output)) urlStr += "&output="+output;
+        }
+
+        return urlStr;
     }
 
     public List<CrawlingRequestDto> Crawler(String str) throws Exception {
