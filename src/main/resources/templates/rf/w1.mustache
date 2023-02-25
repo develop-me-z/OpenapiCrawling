@@ -61,10 +61,10 @@
         <input id="btnSearch" type="button" class="btn btn-outline-info" style="margin-left:10px;" value="조회"/>
     </div>
     <div class="saveBox">
-        <input id="btnSave" type="button" class="btn btn-outline-success" style="margin-left:10px;" value="csv로 저장"/>
+        <a id="btnSave" href="" class="btn btn-outline-success" style="margin-left:10px;" value="csv로 저장">csv로 저장</a>
     </div>
     <!--목록 출력 영역-->
-    <table class="table table-horizontal table-bordered">
+    <table id="dataTable" class="table table-horizontal table-bordered">
         <thead class="thead-strong">
         <tr>
             <th>대권역명</th>
@@ -90,6 +90,7 @@
         {{/data}}
         </tbody>
     </table>
+    <div style="height: 100px;"></div>
 </div>
 
 

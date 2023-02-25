@@ -8,6 +8,7 @@
     <div class="textAlignCenter searchBox">
         <label for="basin"> 권역 : </label>
         <select id="basin">
+            <option value="">전체</option>
             <option value="1">한강</option>
             <option value="2">낙동강</option>
             <option value="3">금강</option>
@@ -18,12 +19,14 @@
 
         <label for="oper">운영상태 : </label>
         <select id="oper">
+            <option value="">전체</option>
             <option value="y">운영중</option>
             <option value="n">폐쇄</option>
         </select>
 
         <label for="mngorg">관할기관 : </label>
         <select id="mngorg">
+            <option value="">전체</option>
             <option value="1">환경부</option>
             <option value="2">한국수자원공사</option>
             <option value="3">한국농어촌공사</option>
@@ -33,6 +36,7 @@
 
         <label for="obsknd">관측방법 : </label>
         <select id="obsknd">
+            <option value="">전체</option>
             <option value="1">보통</option>
             <option value="2">T/M</option>
             <option value="3">자기</option>
@@ -50,17 +54,17 @@
 
         <label for="output"> 출력 포멧 : </label>
         <select id="output">
-            <option value="xml">xml</option>
             <option value="json">json</option>
+            <option value="xml">xml</option>
         </select>
 
         <input id="btnSearch" type="button" class="btn btn-outline-info" style="margin-left:10px;" value="조회"/>
     </div>
     <div class="saveBox">
-        <input id="btnSave" type="button" class="btn btn-outline-success" style="margin-left:10px;" value="csv로 저장"/>
+        <a id="btnSave" href="" class="btn btn-outline-success" style="margin-left:10px;" value="csv로 저장">csv로 저장</a>
     </div>
     <!--목록 출력 영역-->
-    <table class="table table-horizontal table-bordered">
+    <table id="dataTable" class="table table-horizontal table-bordered">
         <thead class="thead-strong">
         <tr>
             <th>대권역명</th>
@@ -86,6 +90,7 @@
         {{/data}}
         </tbody>
     </table>
+    <div style="height: 100px;"></div>
 </div>
 
 
