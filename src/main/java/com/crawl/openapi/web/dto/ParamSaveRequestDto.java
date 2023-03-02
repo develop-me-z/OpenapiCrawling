@@ -14,17 +14,16 @@ public class ParamSaveRequestDto {
     private String obsknd;
     private String keynm;
     private String sort;
-    private String output;
 
-    @Builder
-    public ParamSaveRequestDto(String basin, String oper, String mngorg, String obsknd, String keynm, String sort, String output){
+
+     public ParamSaveRequestDto(String basin, String oper, String mngorg, String obsknd, String keynm, String sort){
         this.basin = basin;
         this.oper = oper;
         this.mngorg = mngorg;
         this.obsknd = obsknd;
         this.keynm =keynm;
         this.sort = sort;
-        this.output = output;
+
     }
 
     public Param toEntity(){
@@ -35,7 +34,6 @@ public class ParamSaveRequestDto {
                 .obsknd(obsknd)
                 .keynm(keynm)
                 .sort(sort)
-                .output(output)
                 .build();
     }
 }

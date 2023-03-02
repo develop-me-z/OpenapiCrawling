@@ -25,10 +25,50 @@ public class RfController {
     public String w1(Model model) throws Exception {
         CrawlingRequestDto dto = new CrawlingRequestDto();
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfW1Data(dto);
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w1",dto);
         model.addAttribute("data", crawlingRequestDtoList);
 
         return "rf/w1";
+    }
+
+    @GetMapping("/w2")
+    public String w2(Model model) throws Exception {
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        //List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w2",dto);
+        //model.addAttribute("data", crawlingRequestDtoList);
+
+        return "rf/w2";
+    }
+
+    @GetMapping("/w3")
+    public String w3(Model model) throws Exception {
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w3",dto);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "rf/w3";
+    }
+
+    @GetMapping("/w4")
+    public String w4(Model model) throws Exception {
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w4",dto);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "rf/w4";
+    }
+
+    @GetMapping("/w5")
+    public String w5(Model model) throws Exception {
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w5",dto);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "rf/w5";
     }
 
     //@ResponseBody
@@ -37,7 +77,7 @@ public class RfController {
 
         ModelAndView mav = new ModelAndView("rf/w1");
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfW1Data(param);
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w1",param);
         //mav.addObject("data", crawlingRequestDtoList);
         model.addAttribute("data", crawlingRequestDtoList);
 
@@ -45,15 +85,56 @@ public class RfController {
         return "rf/w1";
     }
 
-    @SneakyThrows
-    @PostMapping("/save/w1")
-    public String getRfW1Data(Model model) throws Exception {
+    @PostMapping("/search/w2")
+    public String searchRfW2Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
 
-        CrawlingRequestDto dto = new CrawlingRequestDto();
+        ModelAndView mav = new ModelAndView("rf/w2");
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfW1Data(dto);
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w2",param);
+        //mav.addObject("data", crawlingRequestDtoList);
         model.addAttribute("data", crawlingRequestDtoList);
 
-        return "rf/w1";
+        //return model;
+        return "rf/w2";
     }
+
+    @PostMapping("/search/w3")
+    public String searchRfW3Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+
+        ModelAndView mav = new ModelAndView("rf/w3");
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w3",param);
+        //mav.addObject("data", crawlingRequestDtoList);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        //return model;
+        return "rf/w3";
+    }
+
+    @PostMapping("/search/w4")
+    public String searchRfW4Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+
+        ModelAndView mav = new ModelAndView("rf/w4");
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w4",param);
+        //mav.addObject("data", crawlingRequestDtoList);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        //return model;
+        return "rf/w4";
+    }
+
+    @PostMapping("/search/w5")
+    public String searchRfW5Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+
+        ModelAndView mav = new ModelAndView("rf/w5");
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w5",param);
+        //mav.addObject("data", crawlingRequestDtoList);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        //return model;
+        return "rf/w5";
+    }
+
 }
