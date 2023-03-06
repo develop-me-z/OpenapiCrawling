@@ -26,7 +26,7 @@ public class CrawlingService {
 
         String paramUrl = null;
 
-        if("w1".equals(dev)){ // 관측소 검색
+        if("w1".equals(dev)){ // 강수량 관측소 검색
             paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/rf_dubrfobs?";
         } else if("w2".equals(dev)){ // 관측소 제원
             paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/rf_obsinfo?";
@@ -36,6 +36,26 @@ public class CrawlingService {
             paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/rf_dtdata?";
         } else if("w5".equals(dev)){ // 월자료
             paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/rf_mndata?";
+        }
+
+        else if("w6".equals(dev)){ // 수위 관측소 검색
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/wl_dubwlobs?";
+        } else if("w7".equals(dev)){ // 관측소 제원
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/wl_obsinfo?";
+        } else if("w8".equals(dev)){ // 시자료
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/wl_hrdata?";
+        } else if("w9".equals(dev)){ // 일자료
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/wl_dtdata?";
+        }
+
+        else if("w10".equals(dev)){ // 기상 관측소 검색
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/we_dwtwtobs?";
+        } else if("w11".equals(dev)){ // 관측소 제원
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/we_obsinfo?";
+        } else if("w12".equals(dev)){ // 시자료
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/we_hrdata?";
+        } else if("w13".equals(dev)){ // 일자료
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/we_dtdata?";
         }
 
         String urlStr = paramUrl(paramUrl, param);
@@ -142,6 +162,28 @@ public class CrawlingService {
                 String hrdtend = (String) listbody.get("hrdtend");
                 String dydtstart = (String) listbody.get("dydtstart");
                 String dydtend = (String) listbody.get("dydtend");
+                String wlobscd = (String) listbody.get("wlobscd");
+                String mggvcd = (String) listbody.get("mggvcd");
+                String bbsncd = (String) listbody.get("bbsncd");
+                String obsopndt = (String) listbody.get("obsopndt");
+                String obskdcd = (String) listbody.get("obskdcd");
+                String rivnm = (String) listbody.get("rivnm");
+                String bsnara = (String) listbody.get("bsnara");
+                String rvwdt = (String) listbody.get("rvwdt");
+                String bedslp = (String) listbody.get("bedslp");
+                String rvmjctdis = (String) listbody.get("rvmjctdis");
+                String wsrdis = (String) listbody.get("wsrdis");
+                String tmx = (String) listbody.get("tmx");
+                String tmy = (String) listbody.get("tmy");
+                String gdt = (String) listbody.get("gdt");
+                String wltel = (String) listbody.get("wltel");
+                String tdeyn = (String) listbody.get("tdeyn");
+                String mxgrd = (String) listbody.get("mxgrd");
+                String sistartobsdh = (String) listbody.get("sistartobsdh");
+                String siendobsdh = (String) listbody.get("siendobsdh");
+                String olstartobsdh = (String) listbody.get("olstartobsdh");
+                String olendobsdh = (String) listbody.get("olendobsdh");
+                String wl = (String) listbody.get("wl");
                 String ymdh = (String) listbody.get("ymdh");
                 if(ymdh != null)
                     ymdh = ymdh.substring(0,4) + "년 " + ymdh.substring(4,6) + "월 " + ymdh.substring(6,8) + "일 " + ymdh.substring(8,10) + "시";
@@ -156,7 +198,7 @@ public class CrawlingService {
 
                 //todo
                 // 뷰단에서 조회 -> 다운로드하면 받아지게 만들기
-                CrawlingRequestDto dto = new CrawlingRequestDto(bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg, ym, dtrf, obsnmeng, opendt, addr, lon, lat, shgt, hrdtstart, hrdtend, dydtstart, dydtend, ymdh, rf, ymd);
+                CrawlingRequestDto dto = new CrawlingRequestDto(bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg, ym, dtrf, obsnmeng, opendt, addr, lon, lat, shgt, hrdtstart, hrdtend, dydtstart, dydtend, ymdh, rf, ymd, wlobscd, mggvcd, bbsncd, obsopndt, obskdcd, rivnm, bsnara, rvwdt, bedslp, rvmjctdis, wsrdis, tmx, tmy, gdt, wltel, tdeyn, mxgrd, sistartobsdh, siendobsdh, olstartobsdh, olendobsdh, wl);
                 crawlingRequestDtoList.add(dto);
 
                 //writer.writeNext(new String[] {bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg});

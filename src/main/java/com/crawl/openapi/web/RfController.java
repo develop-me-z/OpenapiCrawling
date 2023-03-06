@@ -35,18 +35,12 @@ public class RfController {
     public String w2(Model model) throws Exception {
         CrawlingRequestDto dto = new CrawlingRequestDto();
 
-        //List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w2",dto);
-        //model.addAttribute("data", crawlingRequestDtoList);
-
         return "rf/w2";
     }
 
     @GetMapping("/w3")
     public String w3(Model model) throws Exception {
         CrawlingRequestDto dto = new CrawlingRequestDto();
-
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w3",dto);
-        model.addAttribute("data", crawlingRequestDtoList);
 
         return "rf/w3";
     }
@@ -55,18 +49,12 @@ public class RfController {
     public String w4(Model model) throws Exception {
         CrawlingRequestDto dto = new CrawlingRequestDto();
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w4",dto);
-        model.addAttribute("data", crawlingRequestDtoList);
-
         return "rf/w4";
     }
 
     @GetMapping("/w5")
     public String w5(Model model) throws Exception {
         CrawlingRequestDto dto = new CrawlingRequestDto();
-
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w5",dto);
-        model.addAttribute("data", crawlingRequestDtoList);
 
         return "rf/w5";
     }

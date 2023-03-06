@@ -9,13 +9,6 @@ var main = {
             dateFormat: "yy-mm-dd"
         });
 
-        $('#btn-update').on('click', function () {
-            _this.update();
-        });
-
-        $('#btn-delete').on('click', function () {
-            _this.delete();
-        });
 
         $('#btnSave').on('click', function(){
             _this.save();
@@ -201,42 +194,6 @@ var main = {
         csvFile = new Blob([csv], {type: "text/csv"}); // 생성한 CSV 문자열을 Blob 데이터로 생성
         downLink.href = window.URL.createObjectURL(csvFile); // Blob 데이터를 URL 객체로 감싸 다운로드 하이퍼링크에 붙임.
         downLink.download = fileName; // 인자로 받은 다운로드 파일명을 지정
-    },
-    update : function () {
-        var data = {
-            title: $('#title').val(),
-            content: $('#content').val()
-        };
-
-        var id = $('#id').val();
-
-        $.ajax({
-            type: 'PUT',
-            url: '/api/v1/posts/'+id,
-            dataType: 'json',
-            contentType:'application/json; charset=utf-8',
-            data: JSON.stringify(data)
-        }).done(function() {
-            alert('글이 수정되었습니다.');
-            window.location.href = '/';
-        }).fail(function (error) {
-            alert(JSON.stringify(error));
-        });
-    },
-    delete : function () {
-        var id = $('#id').val();
-
-        $.ajax({
-            type: 'DELETE',
-            url: '/api/v1/posts/'+id,
-            dataType: 'json',
-            contentType:'application/json; charset=utf-8'
-        }).done(function() {
-            alert('글이 삭제되었습니다.');
-            window.location.href = '/';
-        }).fail(function (error) {
-            alert(JSON.stringify(error));
-        });
     }
 
 };
