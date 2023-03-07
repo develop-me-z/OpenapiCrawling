@@ -59,10 +59,46 @@ public class CrawlingRequestDto {
     private String olstartobsdh;
     private String olendobsdh;
     private String wl;
+    private String wtobscd;
+    private String obselm;
+    private String thrmlhi;
+    private String prselm;
+    private String wvmlhi;
+    private String hytmlhi;
+    private String nj;
+    private String ta;
+    private String hm;
+    private String td;
+    private String ps;
+    private String ws;
+    private String wd;
+    private String sihr1;
+    private String catot;
+    private String sdtot;
+    private String sshr1;
+    private String taavg;
+    private String tamin;
+    private String tamax;
+    private String wsavg;
+    private String wsmax;
+    private String wdmax;
+    private String hmavg;
+    private String hmmin;
+    private String evs;
+    private String evl;
+    private String catotavg;
+    private String psavg;
+    private String psmax;
+    private String psmin;
+    private String sdmax;
+    private String tdavg;
+    private String siavg;
+    private String ssavg;
+    private String opndt;
 
 
     @Builder
-    public CrawlingRequestDto(String bbsnnm, String obscd, String obsnm, String clsyn, String obsknd, String sbsncd, String mngorg, String ym, String dtrf, String obsnmeng, String opendt, String addr, String lon, String lat, String shgt, String hrdtstart, String hrdtend, String dydtstart, String dydtend, String ymdh, String rf, String ymd, String wlobscd, String mggvcd, String bbsncd, String obsopndt, String obskdcd, String rivnm, String bsnara, String rvwdt, String bedslp, String rvmjctdis, String wsrdis, String tmx, String tmy, String gdt, String wltel, String tdeyn, String mxgrd, String sistartobsdh, String siendobsdh, String olstartobsdh, String olendobsdh, String wl){
+    public CrawlingRequestDto(String bbsnnm, String obscd, String obsnm, String clsyn, String obsknd, String sbsncd, String mngorg, String ym, String dtrf, String obsnmeng, String opendt, String addr, String lon, String lat, String shgt, String hrdtstart, String hrdtend, String dydtstart, String dydtend, String ymdh, String rf, String ymd, String wlobscd, String mggvcd, String bbsncd, String obsopndt, String obskdcd, String rivnm, String bsnara, String rvwdt, String bedslp, String rvmjctdis, String wsrdis, String tmx, String tmy, String gdt, String wltel, String tdeyn, String mxgrd, String sistartobsdh, String siendobsdh, String olstartobsdh, String olendobsdh, String wl, String wtobscd, String obselm, String thrmlhi, String prselm, String wvmlhi, String hytmlhi, String nj, String ta, String hm, String td, String ps, String ws, String wd, String sihr1, String catot, String sdtot, String sshr1, String taavg, String tamin, String tamax, String wsavg, String wsmax, String wdmax, String hmavg, String hmmin, String evs, String evl, String catotavg, String psavg, String psmax, String psmin, String sdmax, String tdavg, String siavg, String ssavg, String opndt){
         if(bbsnnm!="" && bbsnnm != null) this.bbsnnm = bbsnnm; else this.bbsnnm = "-";
         if(obscd!="" && obscd != null) this.obscd = obscd; else this.obscd = "-";
         if(obsnm!="" && obsnm != null) this.obsnm = obsnm; else this.obsnm = "-";
@@ -107,5 +143,41 @@ public class CrawlingRequestDto {
         if(olstartobsdh!="" && olstartobsdh != null) this.olstartobsdh = olstartobsdh; else this.olstartobsdh = "-";
         if(olendobsdh!="" && olendobsdh != null) this.olendobsdh = olendobsdh; else this.olendobsdh = "-";
         if(wl!="" && wl != null) this.wl = wl; else this.wl = "-";
+        if(wtobscd!="" && wtobscd != null) this.wtobscd = wtobscd; else this.wtobscd = "-";
+        if(obselm!="" && obselm != null) this.obselm = obselm; else this.obselm = "-";
+        if(thrmlhi!="" && thrmlhi != null) this.thrmlhi = thrmlhi; else this.thrmlhi = "-";
+        if(prselm!="" && prselm != null) this.prselm = prselm; else this.prselm = "-";
+        if(wvmlhi!="" && wvmlhi != null) this.wvmlhi = wvmlhi; else this.wvmlhi = "-";
+        if(hytmlhi!="" && hytmlhi != null) this.hytmlhi = hytmlhi; else this.hytmlhi = "-";
+        if(nj!="" && nj != null) this.nj = nj; else this.nj = "-";
+        if(ta!="" && ta != null) this.ta = ta; else this.ta = "-";
+        if(hm!="" && hm != null) this.hm = hm; else this.hm = "-";
+        if(td!="" && td != null) this.td = td; else this.td = "-";
+        if(ps!="" && ps != null) this.ps = ps; else this.ps = "-";
+        if(ws!="" && ws != null) this.ws = ws; else this.ws = "-";
+        if(wd!="" && wd != null) this.wd = wd; else this.wd = "-";
+        if(sihr1!="" && sihr1 != null) this.sihr1 = sihr1; else this.sihr1 = "-";
+        if(catot!="" && catot != null) this.catot = catot; else this.catot = "-";
+        if(sdtot!="" && sdtot != null) this.sdtot = sdtot; else this.sdtot = "-";
+        if(sshr1!="" && sshr1 != null) this.sshr1 = sshr1; else this.sshr1 = "-";
+        if(taavg!="" && taavg != null) this.taavg = taavg; else this.taavg = "-";
+        if(tamin!="" && tamin != null) this.tamin = tamin; else this.tamin = "-";
+        if(tamax!="" && tamax != null) this.tamax = tamax; else this.tamax = "-";
+        if(wsavg!="" && wsavg != null) this.wsavg = wsavg; else this.wsavg = "-";
+        if(wsmax!="" && wsmax != null) this.wsmax = wsmax; else this.wsmax = "-";
+        if(wdmax!="" && wdmax != null) this.wdmax = wdmax; else this.wdmax = "-";
+        if(hmavg!="" && hmavg != null) this.hmavg = hmavg; else this.hmavg = "-";
+        if(hmmin!="" && hmmin != null) this.hmmin = hmmin; else this.hmmin = "-";
+        if(evs!="" && evs != null) this.evs = evs; else this.evs = "-";
+        if(evl!="" && evl != null) this.evl = evl; else this.evl = "-";
+        if(catotavg!="" && catotavg != null) this.catotavg = catotavg; else this.catotavg = "-";
+        if(psavg!="" && psavg != null) this.psavg = psavg; else this.psavg = "-";
+        if(psmax!="" && psmax != null) this.psmax = psmax; else this.psmax = "-";
+        if(psmin!="" && psmin != null) this.psmin = psmin; else this.psmin = "-";
+        if(sdmax!="" && sdmax != null) this.sdmax = sdmax; else this.sdmax = "-";
+        if(tdavg!="" && tdavg != null) this.tdavg = tdavg; else this.tdavg = "-";
+        if(siavg!="" && siavg != null) this.siavg = siavg; else this.siavg = "-";
+        if(ssavg!="" && ssavg != null) this.ssavg = ssavg; else this.ssavg = "-";
+        if(opndt!="" && opndt != null) this.opndt = opndt; else this.opndt = "-";
     }
 }

@@ -1,0 +1,105 @@
+{{>layout/header}}
+
+<div class="container">
+    <div class="sub-title">
+        <h4>기상자료 관측소 제원</h4>
+    </div>
+
+    <div class="textAlignCenter searchBox">
+        <label for="obscd">관측소코드(필수) : </label>
+        <input id="obscd" type="text" style="margin-left:10px;"/>
+
+        <input id="btnSearchW11" type="button" class="btn btn-outline-info" style="margin-left:10px;" value="조회"/>
+    </div>
+    <div class="saveBox">
+        <a id="btnSave" href="" class="btn btn-outline-success" style="margin-left:10px;" value="csv로 저장">csv로 저장</a>
+    </div>
+    <!--목록 출력 영역-->
+    <table id="dataTable" class="table table-horizontal table-bordered">
+        <thead class="thead-strong"></thead>
+        <tbody id="tbody">
+        {{#data}}
+            <tr>
+                <th>기상관측소코드</th>
+                <td>{{wtobscd}}</td>
+            </tr>
+            <tr>
+                <th>관측소명</th>
+                <td>{{obsnm}}</td>
+            </tr>
+            <tr>
+                <th>표준유역코드</th>
+                <td>{{sbsncd}}</td>
+            </tr>
+            <tr>
+                <th>운영상태</th>
+                <td>{{clsyn}}</td>
+            </tr>
+            <tr>
+                <th>관측기종</th>
+                <td>{{obskdcd}}</td>
+            </tr>
+            <tr>
+                <th>관할기관</th>
+                <td>{{mggvcd}}</td>
+            </tr>
+            <tr>
+                <th>관측개시일자</th>
+                <td>{{opndt}}</td>
+            </tr>
+            <tr>
+                <th>위도(GPS좌표계)</th>
+                <td>{{lat}}</td>
+            </tr>
+            <tr>
+                <th>경도(GPS좌표계)</th>
+                <td>{{lon}}</td>
+            </tr>
+            <tr>
+                <th>TM좌표계 x좌표</th>
+                <td>{{tmx}}</td>
+            </tr>
+            <tr>
+                <th>TM좌표계 y좌표</th>
+                <td>{{tmy}}</td>
+            </tr>
+            <tr>
+                <th>주소(지번주소)</th>
+                <td>{{addr}}</td>
+            </tr>
+            <tr>
+                <th>수계</th>
+                <td>{{bbsncd}}</td>
+            </tr>
+            <tr>
+                <th>해발표고(EL.m)</th>
+                <td>{{obselm}}</td>
+            </tr>
+            <tr>
+                <th>온도계 지상높이(m)	</th>
+                <td>{{thrmlhi}}</td>
+            </tr>
+            <tr>
+                <th>기압계 해발표고(EL.m)</th>
+                <td>{{prselm}}</td>
+            </tr>
+            <tr>
+                <th>풍속계 지상높이(m)</th>
+                <td>{{wvmlhi}}</td>
+            </tr>
+            <tr>
+                <th>우량계 지상높이(m)</th>
+                <td>{{hytmlhi}}</td>
+            </tr>
+            <tr>
+                <th>노장(m)</th>
+                <td>{{nj}}</td>
+            </tr>
+        {{/data}}
+        </tbody>
+    </table>
+    <div style="height: 100px;"></div>
+</div>
+
+
+{{>layout/footer}}

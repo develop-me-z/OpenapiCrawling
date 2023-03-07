@@ -184,6 +184,42 @@ public class CrawlingService {
                 String olstartobsdh = (String) listbody.get("olstartobsdh");
                 String olendobsdh = (String) listbody.get("olendobsdh");
                 String wl = (String) listbody.get("wl");
+                String wtobscd = (String) listbody.get("wtobscd");
+                String obselm = (String) listbody.get("obselm");
+                String thrmlhi = (String) listbody.get("thrmlhi");
+                String prselm = (String) listbody.get("prselm");
+                String wvmlhi = (String) listbody.get("wvmlhi");
+                String hytmlhi = (String) listbody.get("hytmlhi");
+                String nj = (String) listbody.get("nj");
+                String ta = (String) listbody.get("ta");
+                String hm = (String) listbody.get("hm");
+                String td = (String) listbody.get("td");
+                String ps = (String) listbody.get("ps");
+                String ws = (String) listbody.get("ws");
+                String wd = (String) listbody.get("wd");
+                String sihr1 = (String) listbody.get("sihr1");
+                String catot = (String) listbody.get("catot");
+                String sdtot = (String) listbody.get("sdtot");
+                String sshr1 = (String) listbody.get("sshr1");
+                String taavg = (String) listbody.get("taavg");
+                String tamin = (String) listbody.get("tamin");
+                String tamax = (String) listbody.get("tamax");
+                String wsavg = (String) listbody.get("wsavg");
+                String wsmax = (String) listbody.get("wsmax");
+                String wdmax = (String) listbody.get("wdmax");
+                String hmavg = (String) listbody.get("hmavg");
+                String hmmin = (String) listbody.get("hmmin");
+                String evs = (String) listbody.get("evs");
+                String evl = (String) listbody.get("evl");
+                String catotavg = (String) listbody.get("catotavg");
+                String psavg = (String) listbody.get("psavg");
+                String psmax = (String) listbody.get("psmax");
+                String psmin = (String) listbody.get("psmin");
+                String sdmax = (String) listbody.get("sdmax");
+                String tdavg = (String) listbody.get("tdavg");
+                String siavg = (String) listbody.get("siavg");
+                String ssavg = (String) listbody.get("ssavg");
+                String opndt = (String) listbody.get("opndt");
                 String ymdh = (String) listbody.get("ymdh");
                 if(ymdh != null)
                     ymdh = ymdh.substring(0,4) + "년 " + ymdh.substring(4,6) + "월 " + ymdh.substring(6,8) + "일 " + ymdh.substring(8,10) + "시";
@@ -198,7 +234,7 @@ public class CrawlingService {
 
                 //todo
                 // 뷰단에서 조회 -> 다운로드하면 받아지게 만들기
-                CrawlingRequestDto dto = new CrawlingRequestDto(bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg, ym, dtrf, obsnmeng, opendt, addr, lon, lat, shgt, hrdtstart, hrdtend, dydtstart, dydtend, ymdh, rf, ymd, wlobscd, mggvcd, bbsncd, obsopndt, obskdcd, rivnm, bsnara, rvwdt, bedslp, rvmjctdis, wsrdis, tmx, tmy, gdt, wltel, tdeyn, mxgrd, sistartobsdh, siendobsdh, olstartobsdh, olendobsdh, wl);
+                CrawlingRequestDto dto = new CrawlingRequestDto(bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg, ym, dtrf, obsnmeng, opendt, addr, lon, lat, shgt, hrdtstart, hrdtend, dydtstart, dydtend, ymdh, rf, ymd, wlobscd, mggvcd, bbsncd, obsopndt, obskdcd, rivnm, bsnara, rvwdt, bedslp, rvmjctdis, wsrdis, tmx, tmy, gdt, wltel, tdeyn, mxgrd, sistartobsdh, siendobsdh, olstartobsdh, olendobsdh, wl, wtobscd, obselm, thrmlhi, prselm, wvmlhi, hytmlhi, nj, ta, hm, td, ps, ws, wd, sihr1, catot, sdtot, sshr1, taavg, tamin, tamax, wsavg, wsmax, wdmax, hmavg, hmmin, evs, evl, catotavg, psavg, psmax, psmin, sdmax, tdavg, siavg, ssavg, opndt);
                 crawlingRequestDtoList.add(dto);
 
                 //writer.writeNext(new String[] {bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg});

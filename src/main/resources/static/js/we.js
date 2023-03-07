@@ -9,52 +9,39 @@ var main = {
             dateFormat: "yy-mm-dd"
         });
 
-        $('#btn-update').on('click', function () {
-            _this.update();
-        });
-
-        $('#btn-delete').on('click', function () {
-            _this.delete();
-        });
 
         $('#btnSave').on('click', function(){
             _this.save();
         });
 
-        $('#btnSearchW1').on('click', function(){
-            _this.searchW1();
+        $('#btnSearchW10').on('click', function(){
+            _this.searchW10();
         });
 
-        $('#btnSearchW2').on('click', function(){
-            _this.searchW2();
+        $('#btnSearchW11').on('click', function(){
+            _this.searchW11();
         });
 
-        $('#btnSearchW3').on('click', function(){
-            _this.searchW3();
+        $('#btnSearchW12').on('click', function(){
+            _this.searchW12();
         });
 
-        $('#btnSearchW4').on('click', function(){
-            _this.searchW4();
+        $('#btnSearchW13').on('click', function(){
+            _this.searchW13();
         });
 
-        $('#btnSearchW5').on('click', function(){
-            _this.searchW5();
-        });
     },
-    searchW1 : function () {
+    searchW10 : function () {
         var data = {
             basin: $('#basin option:selected').val(),
             oper: $('#oper option:selected').val(),
-            mngorg: $('#mngorg option:selected').val(),
-            obsknd: $('#obsknd option:selected').val(),
             keynm: $('#keynm').val(),
-            sort: $('#sort option:selected').val(),
-            output: $('#output option:selected').val()
+            sort: $('#sort option:selected').val()
         };
 
         $.ajax({
             type: 'POST',
-            url: '/rf/search/w1',
+            url: '/we/search/w10',
             //dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data),
@@ -72,14 +59,14 @@ var main = {
             alert(JSON.stringify(error));
         });
     },
-    searchW2 : function () {
+    searchW11 : function () {
         var data = {
             obscd: $('#obscd').val()
         };
 
         $.ajax({
             type: 'POST',
-            url: '/rf/search/w2',
+            url: '/we/search/w11',
             //dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data),
@@ -97,7 +84,7 @@ var main = {
             alert(JSON.stringify(error));
         });
     },
-    searchW3 : function () {
+    searchW12 : function () {
         var data = {
             obscd: $('#obscd').val(),
             startdt: $('#startdt').val()!=""? moment($('#startdt').val()).format("YYYYMMDD") : "",
@@ -106,7 +93,7 @@ var main = {
 
         $.ajax({
             type: 'POST',
-            url: '/rf/search/w3',
+            url: '/we/search/w12',
             //dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data),
@@ -124,7 +111,7 @@ var main = {
             alert(JSON.stringify(error));
         });
     },
-    searchW4 : function () {
+    searchW13 : function () {
         var data = {
             obscd: $('#obscd').val(),
             startdt: $('#startdt').val()!=""? moment($('#startdt').val()).format("YYYYMMDD") : "",
@@ -133,34 +120,7 @@ var main = {
 
         $.ajax({
             type: 'POST',
-            url: '/rf/search/w4',
-            //dataType: 'json',
-            contentType:'application/json; charset=utf-8',
-            data: JSON.stringify(data),
-            beforeSend : function(){
-                //location.reload();
-
-            },
-            success: function (result){
-                //alert(result);
-                document.write(result);
-            }
-        }).done(function() {
-
-        }).fail(function (error) {
-            alert(JSON.stringify(error));
-        });
-    },
-    searchW5 : function () {
-        var data = {
-            obscd: $('#obscd').val(),
-            startyear: $('#startyear').val(),
-            endyear: $('#endyear').val()
-        };
-
-        $.ajax({
-            type: 'POST',
-            url: '/rf/search/w5',
+            url: '/we/search/w13',
             //dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data),
@@ -201,42 +161,6 @@ var main = {
         csvFile = new Blob([csv], {type: "text/csv"}); // 생성한 CSV 문자열을 Blob 데이터로 생성
         downLink.href = window.URL.createObjectURL(csvFile); // Blob 데이터를 URL 객체로 감싸 다운로드 하이퍼링크에 붙임.
         downLink.download = fileName; // 인자로 받은 다운로드 파일명을 지정
-    },
-    update : function () {
-        var data = {
-            title: $('#title').val(),
-            content: $('#content').val()
-        };
-
-        var id = $('#id').val();
-
-        $.ajax({
-            type: 'PUT',
-            url: '/api/v1/posts/'+id,
-            dataType: 'json',
-            contentType:'application/json; charset=utf-8',
-            data: JSON.stringify(data)
-        }).done(function() {
-            alert('글이 수정되었습니다.');
-            window.location.href = '/';
-        }).fail(function (error) {
-            alert(JSON.stringify(error));
-        });
-    },
-    delete : function () {
-        var id = $('#id').val();
-
-        $.ajax({
-            type: 'DELETE',
-            url: '/api/v1/posts/'+id,
-            dataType: 'json',
-            contentType:'application/json; charset=utf-8'
-        }).done(function() {
-            alert('글이 삭제되었습니다.');
-            window.location.href = '/';
-        }).fail(function (error) {
-            alert(JSON.stringify(error));
-        });
     }
 
 };

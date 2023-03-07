@@ -1,0 +1,74 @@
+{{>layout/header}}
+
+<div class="container">
+    <div class="sub-title">
+        <h4>기상 관측소 검색</h4>
+    </div>
+
+    <div class="textAlignCenter searchBox">
+        <label for="basin"> 권역 : </label>
+        <select id="basin">
+            <option value="">전체</option>
+            <option value="1">한강</option>
+            <option value="2">낙동강</option>
+            <option value="3">금강</option>
+            <option value="4">섬진강</option>
+            <option value="5">영산강</option>
+            <option value="6">제주도</option>
+        </select>
+
+        <label for="oper">운영상태 : </label>
+        <select id="oper">
+            <option value="">전체</option>
+            <option value="y">운영중</option>
+            <option value="n">폐쇄</option>
+        </select>
+
+        <label for="keynm">관측소명: </label>
+        <input id="keynm" type="text" style="margin-left:10px;"/>
+
+        <label for="sort">정렬방법 :</label>
+        <select id="sort">
+            <option value="1">관측소코드</option>
+            <option value="2">관측소명</option>
+        </select>
+
+        <input id="btnSearchW10" type="button" class="btn btn-outline-info" style="margin-left:10px;" value="조회"/>
+    </div>
+    <div class="saveBox">
+        <a id="btnSave" href="" class="btn btn-outline-success" style="margin-left:10px;" value="csv로 저장">csv로 저장</a>
+    </div>
+    <!--목록 출력 영역-->
+    <table id="dataTable" class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+        <tr>
+            <th>대권역명</th>
+            <th>관측소코드</th>
+            <th>관측소명</th>
+            <th>운영여부</th>
+            <th>관측방법</th>
+            <th>표준유역코드</th>
+            <th>관할기관</th>
+            <th>주소(지번주소)</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#data}}
+            <tr>
+                <td>{{bbsnnm}}</td>
+                <td>{{obscd}}</td>
+                <td>{{obsnm}}</td>
+                <td>{{clsyn}}</td>
+                <td>{{obsknd}}</td>
+                <td>{{sbsncd}}</td>
+                <td>{{mngorg}}</td>
+                <td>{{addr}}</td>
+            </tr>
+        {{/data}}
+        </tbody>
+    </table>
+    <div style="height: 100px;"></div>
+</div>
+
+
+{{>layout/footer}}
