@@ -95,10 +95,22 @@ public class CrawlingRequestDto {
     private String siavg;
     private String ssavg;
     private String opndt;
+    private String obsymd;
+    private String obssthm;
+    private String obsedhm;
+    private String stwl;
+    private String edwl;
+    private String avgwl;
+    private String rivwith;
+    private String care;
+    private String wspd;
+    private String flw;
+    private String obsway;
+    private String docnm;
 
 
     @Builder
-    public CrawlingRequestDto(String bbsnnm, String obscd, String obsnm, String clsyn, String obsknd, String sbsncd, String mngorg, String ym, String dtrf, String obsnmeng, String opendt, String addr, String lon, String lat, String shgt, String hrdtstart, String hrdtend, String dydtstart, String dydtend, String ymdh, String rf, String ymd, String wlobscd, String mggvcd, String bbsncd, String obsopndt, String obskdcd, String rivnm, String bsnara, String rvwdt, String bedslp, String rvmjctdis, String wsrdis, String tmx, String tmy, String gdt, String wltel, String tdeyn, String mxgrd, String sistartobsdh, String siendobsdh, String olstartobsdh, String olendobsdh, String wl, String wtobscd, String obselm, String thrmlhi, String prselm, String wvmlhi, String hytmlhi, String nj, String ta, String hm, String td, String ps, String ws, String wd, String sihr1, String catot, String sdtot, String sshr1, String taavg, String tamin, String tamax, String wsavg, String wsmax, String wdmax, String hmavg, String hmmin, String evs, String evl, String catotavg, String psavg, String psmax, String psmin, String sdmax, String tdavg, String siavg, String ssavg, String opndt){
+    public CrawlingRequestDto(String bbsnnm, String obscd, String obsnm, String clsyn, String obsknd, String sbsncd, String mngorg, String ym, String dtrf, String obsnmeng, String opendt, String addr, String lon, String lat, String shgt, String hrdtstart, String hrdtend, String dydtstart, String dydtend, String ymdh, String rf, String ymd, String wlobscd, String mggvcd, String bbsncd, String obsopndt, String obskdcd, String rivnm, String bsnara, String rvwdt, String bedslp, String rvmjctdis, String wsrdis, String tmx, String tmy, String gdt, String wltel, String tdeyn, String mxgrd, String sistartobsdh, String siendobsdh, String olstartobsdh, String olendobsdh, String wl, String wtobscd, String obselm, String thrmlhi, String prselm, String wvmlhi, String hytmlhi, String nj, String ta, String hm, String td, String ps, String ws, String wd, String sihr1, String catot, String sdtot, String sshr1, String taavg, String tamin, String tamax, String wsavg, String wsmax, String wdmax, String hmavg, String hmmin, String evs, String evl, String catotavg, String psavg, String psmax, String psmin, String sdmax, String tdavg, String siavg, String ssavg, String opndt, String obsymd, String obssthm, String obsedhm, String stwl, String edwl, String avgwl, String rivwith, String care, String wspd, String flw, String obsway, String docnm){
         if(bbsnnm!="" && bbsnnm != null) this.bbsnnm = bbsnnm; else this.bbsnnm = "-";
         if(obscd!="" && obscd != null) this.obscd = obscd; else this.obscd = "-";
         if(obsnm!="" && obsnm != null) this.obsnm = obsnm; else this.obsnm = "-";
@@ -179,5 +191,17 @@ public class CrawlingRequestDto {
         if(siavg!="" && siavg != null) this.siavg = siavg; else this.siavg = "-";
         if(ssavg!="" && ssavg != null) this.ssavg = ssavg; else this.ssavg = "-";
         if(opndt!="" && opndt != null) this.opndt = opndt; else this.opndt = "-";
+        if(obsymd!="" && obsymd != null) this.obsymd = obsymd; else this.obsymd = "-";
+        if(obssthm!="" && obssthm != null) this.obssthm = obssthm; else this.obssthm = "-";
+        if(obsedhm!="" && obsedhm != null) this.obsedhm = obsedhm; else this.obsedhm = "-";
+        if(stwl!="" && stwl != null) this.stwl = stwl; else this.stwl = "-";
+        if(edwl!="" && edwl != null) this.edwl = edwl; else this.edwl = "-";
+        if(avgwl!="" && avgwl != null) this.avgwl = avgwl; else this.avgwl = "-";
+        if(rivwith!="" && rivwith != null) this.rivwith = rivwith; else this.rivwith = "-";
+        if(care!="" && care != null) this.care = care; else this.care = "-";
+        if(wspd!="" && wspd != null) this.wspd = wspd; else this.wspd = "-";
+        if(flw!="" && flw != null) this.flw = flw; else this.flw = "-";
+        if(obsway!="" && obsway != null) this.obsway = obsway; else this.obsway = "-";
+        if(docnm!="" && docnm != null) this.docnm = docnm; else this.docnm = "-";
     }
 }

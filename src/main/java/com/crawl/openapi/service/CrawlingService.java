@@ -58,6 +58,12 @@ public class CrawlingService {
             paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/we_dtdata?";
         }
 
+        else if("w16".equals(dev)){ // 유량 측정성과 관측소 검색
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/wkw_youardata?";
+        } else if("w17".equals(dev)){ // 유량 측정성과
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/wkw_flwsrrslst?";
+        }
+
         String urlStr = paramUrl(paramUrl, param);
 
         URL url = new URL(urlStr);
@@ -220,6 +226,18 @@ public class CrawlingService {
                 String siavg = (String) listbody.get("siavg");
                 String ssavg = (String) listbody.get("ssavg");
                 String opndt = (String) listbody.get("opndt");
+                String obsymd = (String) listbody.get("obsymd");
+                String obssthm = (String) listbody.get("obssthm");
+                String obsedhm = (String) listbody.get("obsedhm");
+                String stwl = (String) listbody.get("stwl");
+                String edwl = (String) listbody.get("edwl");
+                String avgwl = (String) listbody.get("avgwl");
+                String rivwith = (String) listbody.get("rivwith");
+                String care = (String) listbody.get("care");
+                String wspd = (String) listbody.get("wspd");
+                String flw = (String) listbody.get("flw");
+                String obsway = (String) listbody.get("obsway");
+                String docnm = (String) listbody.get("docnm");
                 String ymdh = (String) listbody.get("ymdh");
                 if(ymdh != null)
                     ymdh = ymdh.substring(0,4) + "년 " + ymdh.substring(4,6) + "월 " + ymdh.substring(6,8) + "일 " + ymdh.substring(8,10) + "시";
@@ -234,7 +252,7 @@ public class CrawlingService {
 
                 //todo
                 // 뷰단에서 조회 -> 다운로드하면 받아지게 만들기
-                CrawlingRequestDto dto = new CrawlingRequestDto(bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg, ym, dtrf, obsnmeng, opendt, addr, lon, lat, shgt, hrdtstart, hrdtend, dydtstart, dydtend, ymdh, rf, ymd, wlobscd, mggvcd, bbsncd, obsopndt, obskdcd, rivnm, bsnara, rvwdt, bedslp, rvmjctdis, wsrdis, tmx, tmy, gdt, wltel, tdeyn, mxgrd, sistartobsdh, siendobsdh, olstartobsdh, olendobsdh, wl, wtobscd, obselm, thrmlhi, prselm, wvmlhi, hytmlhi, nj, ta, hm, td, ps, ws, wd, sihr1, catot, sdtot, sshr1, taavg, tamin, tamax, wsavg, wsmax, wdmax, hmavg, hmmin, evs, evl, catotavg, psavg, psmax, psmin, sdmax, tdavg, siavg, ssavg, opndt);
+                CrawlingRequestDto dto = new CrawlingRequestDto(bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg, ym, dtrf, obsnmeng, opendt, addr, lon, lat, shgt, hrdtstart, hrdtend, dydtstart, dydtend, ymdh, rf, ymd, wlobscd, mggvcd, bbsncd, obsopndt, obskdcd, rivnm, bsnara, rvwdt, bedslp, rvmjctdis, wsrdis, tmx, tmy, gdt, wltel, tdeyn, mxgrd, sistartobsdh, siendobsdh, olstartobsdh, olendobsdh, wl, wtobscd, obselm, thrmlhi, prselm, wvmlhi, hytmlhi, nj, ta, hm, td, ps, ws, wd, sihr1, catot, sdtot, sshr1, taavg, tamin, tamax, wsavg, wsmax, wdmax, hmavg, hmmin, evs, evl, catotavg, psavg, psmax, psmin, sdmax, tdavg, siavg, ssavg, opndt, obsymd, obssthm, obsedhm, stwl, edwl, avgwl, rivwith, care, wspd, flw, obsway, docnm);
                 crawlingRequestDtoList.add(dto);
 
                 //writer.writeNext(new String[] {bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg});

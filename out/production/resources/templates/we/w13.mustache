@@ -1,0 +1,80 @@
+{{>layout/header}}
+
+<div class="container">
+    <div class="sub-title">
+        <h4>기상 일자료</h4>
+    </div>
+
+    <div class="textAlignCenter searchBox">
+
+        <label for="obscd">관측소코드(필수) : </label>
+        <input id="obscd" type="text" style="margin-left:10px;"/>
+
+        <label for="startdt	">관측기간(시작일): </label>
+        <input id="startdt" type="text" style="margin-left:10px;"/>
+        ~
+        <label for="enddt">관측기간(종료일): </label>
+        <input id="enddt" type="text" style="margin-left:10px;"/>
+
+        <input id="btnSearchW13" type="button" class="btn btn-outline-info" style="margin-left:10px;" value="조회"/>
+    </div>
+    <div class="saveBox">
+        *관측기간이 1년 이상인 경우 종료일까지 1년의 자료가 조회됩니다.*
+        <a id="btnSave" href="" class="btn btn-outline-success" style="margin-left:10px;" value="csv로 저장">csv로 저장</a>
+    </div>
+    <!--목록 출력 영역-->
+    <table id="dataTable" class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+        <tr>
+            <th>관측일</th>
+            <th>평균기온(℃)</th>
+            <th>최저기온(℃)</th>
+            <th>최고기온(℃)</th>
+            <th>평균풍속(m/s)</th>
+            <th>최대풍속(m/s)</th>
+            <th>최대풍향(m/s)</th>
+            <th>상대습도평균(%)</th>
+            <th>상대습도최소(%)</th>
+            <th>증발량소형(㎜)</th>
+            <th>증발량대형(㎜)</th>
+            <th>평균운량</th>
+            <th>해면기압(h㎩)	</th>
+            <th>최대해면기압(h㎩)</th>
+            <th>최저해면기압(h㎩)</th>
+            <th>최심신적설량(㎝)</th>
+            <th>이슬점온도(℃)</th>
+            <th>일사량(㎝)</th>
+            <th>일조시간(시간)</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#data}}
+            <tr>
+                <td>{{ymd}}</td>
+                <td>{{taavg}}</td>
+                <td>{{tamin}}</td>
+                <td>{{tamax}}</td>
+                <td>{{wsavg}}</td>
+                <td>{{wsmax}}</td>
+                <td>{{wdmax}}</td>
+                <td>{{hmavg}}</td>
+                <td>{{hmmin}}</td>
+                <td>{{evs}}</td>
+                <td>{{evl}}</td>
+                <td>{{catotavg}}</td>
+                <td>{{psavg}}</td>
+                <td>{{psmax}}</td>
+                <td>{{psmin}}</td>
+                <td>{{sdmax}}</td>
+                <td>{{tdavg}}</td>
+                <td>{{siavg}}</td>
+                <td>{{ssavg}}</td>
+            </tr>
+        {{/data}}
+        </tbody>
+    </table>
+    <div style="height: 100px;"></div>
+</div>
+
+
+{{>layout/footer}}
