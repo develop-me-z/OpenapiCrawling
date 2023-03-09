@@ -58,10 +58,22 @@ public class CrawlingService {
             paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/we_dtdata?";
         }
 
+        else if("w14".equals(dev)){ // 유량 자료 관측소 검색
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/flw_dubobsif?";
+        } else if("w15".equals(dev)){ // 실시간 일류량
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/flw_dtdata?";
+        }
+
         else if("w16".equals(dev)){ // 유량 측정성과 관측소 검색
             paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/wkw_youardata?";
         } else if("w17".equals(dev)){ // 유량 측정성과
             paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/wkw_flwsrrslst?";
+        }
+
+        else if("w18".equals(dev)){ // 유사량 측정성과 관측소 검색
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/wkw_ardata?";
+        } else if("w19".equals(dev)){ // 유사량 측정성과
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/wkw_qsvsrrslst?";
         }
 
         String urlStr = paramUrl(paramUrl, param);
@@ -99,6 +111,7 @@ public class CrawlingService {
         String enddt = param.getEnddt();
         String startyear = param.getStartyear();
         String endyear = param.getEndyear();
+        String year = param.getYear();
 
 
         if(basin!=null){
@@ -133,6 +146,9 @@ public class CrawlingService {
         }
         if(endyear!=null) {
             if(!"".equals(endyear)) urlStr += "&endyear="+endyear;
+        }
+        if(year!=null) {
+            if(!"".equals(year)) urlStr += "&year="+year;
         }
 
         return urlStr;
@@ -238,6 +254,9 @@ public class CrawlingService {
                 String flw = (String) listbody.get("flw");
                 String obsway = (String) listbody.get("obsway");
                 String docnm = (String) listbody.get("docnm");
+                String minyear = (String) listbody.get("minyear");
+                String maxyear = (String) listbody.get("maxyear");
+                String fw = (String) listbody.get("fw");
                 String ymdh = (String) listbody.get("ymdh");
                 if(ymdh != null)
                     ymdh = ymdh.substring(0,4) + "년 " + ymdh.substring(4,6) + "월 " + ymdh.substring(6,8) + "일 " + ymdh.substring(8,10) + "시";
@@ -252,7 +271,7 @@ public class CrawlingService {
 
                 //todo
                 // 뷰단에서 조회 -> 다운로드하면 받아지게 만들기
-                CrawlingRequestDto dto = new CrawlingRequestDto(bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg, ym, dtrf, obsnmeng, opendt, addr, lon, lat, shgt, hrdtstart, hrdtend, dydtstart, dydtend, ymdh, rf, ymd, wlobscd, mggvcd, bbsncd, obsopndt, obskdcd, rivnm, bsnara, rvwdt, bedslp, rvmjctdis, wsrdis, tmx, tmy, gdt, wltel, tdeyn, mxgrd, sistartobsdh, siendobsdh, olstartobsdh, olendobsdh, wl, wtobscd, obselm, thrmlhi, prselm, wvmlhi, hytmlhi, nj, ta, hm, td, ps, ws, wd, sihr1, catot, sdtot, sshr1, taavg, tamin, tamax, wsavg, wsmax, wdmax, hmavg, hmmin, evs, evl, catotavg, psavg, psmax, psmin, sdmax, tdavg, siavg, ssavg, opndt, obsymd, obssthm, obsedhm, stwl, edwl, avgwl, rivwith, care, wspd, flw, obsway, docnm);
+                CrawlingRequestDto dto = new CrawlingRequestDto(bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg, ym, dtrf, obsnmeng, opendt, addr, lon, lat, shgt, hrdtstart, hrdtend, dydtstart, dydtend, ymdh, rf, ymd, wlobscd, mggvcd, bbsncd, obsopndt, obskdcd, rivnm, bsnara, rvwdt, bedslp, rvmjctdis, wsrdis, tmx, tmy, gdt, wltel, tdeyn, mxgrd, sistartobsdh, siendobsdh, olstartobsdh, olendobsdh, wl, wtobscd, obselm, thrmlhi, prselm, wvmlhi, hytmlhi, nj, ta, hm, td, ps, ws, wd, sihr1, catot, sdtot, sshr1, taavg, tamin, tamax, wsavg, wsmax, wdmax, hmavg, hmmin, evs, evl, catotavg, psavg, psmax, psmin, sdmax, tdavg, siavg, ssavg, opndt, obsymd, obssthm, obsedhm, stwl, edwl, avgwl, rivwith, care, wspd, flw, obsway, docnm, minyear, maxyear, fw);
                 crawlingRequestDtoList.add(dto);
 
                 //writer.writeNext(new String[] {bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg});

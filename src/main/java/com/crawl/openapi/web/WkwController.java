@@ -36,6 +36,22 @@ public class WkwController {
         return "wkw/w17";
     }
 
+    @GetMapping("/w18")
+    public String w18(Model model) throws Exception {
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w18",dto);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "wkw/w18";
+    }
+
+    @GetMapping("/w19")
+    public String w19() {
+
+        return "wkw/w19";
+    }
+
 
     //@ResponseBody
     @PostMapping("/search/w16")
@@ -62,6 +78,32 @@ public class WkwController {
 
         //return model;
         return "wkw/w17";
+    }
+
+    @PostMapping("/search/w18")
+    public String searchW18Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+
+        ModelAndView mav = new ModelAndView("wkw/w18");
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w18",param);
+        //mav.addObject("data", crawlingRequestDtoList);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        //return model;
+        return "wkw/w18";
+    }
+
+    @PostMapping("/search/w19")
+    public String searchW19Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+
+        ModelAndView mav = new ModelAndView("wkw/w19");
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w19",param);
+        //mav.addObject("data", crawlingRequestDtoList);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        //return model;
+        return "wkw/w19";
     }
 
 }
