@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="sub-title">
-        <h4>유량 측정성과 관측소 검색</h4>
+        <h4>유사량 측정성과 관측소 검색</h4>
     </div>
 
     <div class="textAlignCenter searchBox">
@@ -17,14 +17,7 @@
             <option value="6">제주도</option>
         </select>
 
-        <label for="mngorg">관할기관 :</label>
-        <select id="mngorg">
-            <option value="">전체</option>
-            <option value="1">환경부</option>
-            <option value="2">한국수자원공사</option>
-        </select>
-
-        <input id="btnSearchW16" type="button" class="btn btn-outline-info" style="margin-left:10px;" value="조회"/>
+        <input id="btnSearchW18" type="button" class="btn btn-outline-info" style="margin-left:10px;" value="조회"/>
     </div>
     <div class="saveBox">
         <a id="btnSave" href="" class="btn btn-outline-success" style="margin-left:10px;" value="csv로 저장">csv로 저장</a>
@@ -40,7 +33,7 @@
         <tbody id="tbody">
         {{#data}}
             <tr>
-                <td>{{wlobscd}}</td>
+                <td>{{wlcd}}</td>
                 <td>{{obsnm}}</td>
             </tr>
         {{/data}}

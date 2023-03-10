@@ -116,11 +116,69 @@ public class CrawlingRequestDto {
     private String capdsy;
     private String flqsv;
     private String wlcd;
+    private String admcd;
+    private String admnm;
+    private String estcnt;
+    private String ecpqty;
+    private String fullara;
+    private String pemara;
+    private String sumara;
+    private String nirara;
+    private String pirara;
+    private String oirara;
+    private String mtcnt;
+    private String mxvol;
+    private String totirara;
+    private String itqty;
+    private String address;
+    private String opymd;
+    private String plmaxdrngblue;
+    private String plmaxdrngrain;
+    private String pumpname;
+    private String plmax;
+    private String wastwpcnt;
+    private String rainwpcal;
+    private String wastwpcal;
+    private String wastwpdrng;
+    private String rainwpdrng;
+    private String rainwpcnt;
+    private String elecppyn;
+    private String deodoriyn;
+    private String bsncd;
+    private String bsnnm;
+    private String drfq;
+    private String edyr;
+    private String estnm;
+    private String esttype;
+    private String mggvnm;
+    private String mwsnm;
+    private String wsdv;
 
 
     @Builder
-    public CrawlingRequestDto(String bbsnnm, String obscd, String obsnm, String clsyn, String obsknd, String sbsncd, String mngorg, String ym, String dtrf, String obsnmeng, String opendt, String addr, String lon, String lat, String shgt, String hrdtstart, String hrdtend, String dydtstart, String dydtend, String ymdh, String rf, String ymd, String wlobscd, String mggvcd, String bbsncd, String obsopndt, String obskdcd, String rivnm, String bsnara, String rvwdt, String bedslp, String rvmjctdis, String wsrdis, String tmx, String tmy, String gdt, String wltel, String tdeyn, String mxgrd, String sistartobsdh, String siendobsdh, String olstartobsdh, String olendobsdh, String wl, String wtobscd, String obselm, String thrmlhi, String prselm, String wvmlhi, String hytmlhi, String nj, String ta, String hm, String td, String ps, String ws, String wd, String sihr1, String catot, String sdtot, String sshr1, String taavg, String tamin, String tamax, String wsavg, String wsmax, String wdmax, String hmavg, String hmmin, String evs, String evl, String catotavg, String psavg, String psmax, String psmin, String sdmax, String tdavg, String siavg, String ssavg, String opndt, String obsymd, String obssthm, String obsedhm, String stwl, String edwl, String avgwl, String rivwith, String care, String wspd, String flw, String obsway, String docnm, String minyear, String maxyear, String fw, String obsymdhn, String surcnt, String capdsy, String flqsv, String wlcd){
+    public CrawlingRequestDto(String bbsnnm, String obscd, String obsnm, String clsyn, String obsknd, String sbsncd, String mngorg, String ym, String dtrf, String obsnmeng, String opendt, String addr, String lon, String lat, String shgt, String hrdtstart, String hrdtend, String dydtstart, String dydtend, String ymdh, String rf, String ymd, String wlobscd, String mggvcd, String bbsncd, String obsopndt, String obskdcd, String rivnm, String bsnara, String rvwdt, String bedslp, String rvmjctdis, String wsrdis, String tmx, String tmy, String gdt, String wltel, String tdeyn, String mxgrd, String sistartobsdh, String siendobsdh, String olstartobsdh, String olendobsdh, String wl, String wtobscd, String obselm, String thrmlhi, String prselm, String wvmlhi, String hytmlhi, String nj, String ta, String hm, String td, String ps, String ws, String wd, String sihr1, String catot, String sdtot, String sshr1, String taavg, String tamin, String tamax, String wsavg, String wsmax, String wdmax, String hmavg, String hmmin, String evs, String evl, String catotavg, String psavg, String psmax, String psmin, String sdmax, String tdavg, String siavg, String ssavg, String opndt, String obsymd, String obssthm, String obsedhm, String stwl, String edwl, String avgwl, String rivwith, String care, String wspd, String flw, String obsway, String docnm, String minyear, String maxyear, String fw, String obsymdhn, String surcnt, String capdsy, String flqsv, String wlcd, String admnm, String admcd, String estcnt, String ecpqty, String fullara, String pemara, String sumara, String nirara, String pirara, String oirara, String mtcnt, String mxvol, String totirara, String itqty, String address, String opymd, String plmaxdrngblue, String plmaxdrngrain, String pumpname, String plmax, String wastwpcnt, String rainwpcal, String wastwpcal, String wastwpdrng, String rainwpdrng, String rainwpcnt, String elecppyn, String deodoriyn, String bsncd, String bsnnm, String drfq, String edyr, String estnm, String esttype, String mggvnm, String mwsnm, String wsdv){
         if(bbsnnm!="" && bbsnnm != null) this.bbsnnm = bbsnnm; else this.bbsnnm = "-";
+        if(wsdv!="" && wsdv != null) this.wsdv = wsdv; else this.wsdv = "-";
+        if(mwsnm!="" && mwsnm != null) this.mwsnm = mwsnm; else this.mwsnm = "-";
+        if(mggvnm!="" && mggvnm != null) this.mggvnm = mggvnm; else this.mggvnm = "-";
+        if(esttype!="" && esttype != null) this.esttype = esttype; else this.esttype = "-";
+        if(estnm!="" && estnm != null) this.estnm = estnm; else this.estnm = "-";
+        if(edyr!="" && edyr != null) this.edyr = edyr; else this.edyr = "-";
+        if(drfq!="" && drfq != null) this.drfq = drfq; else this.drfq = "-";
+        if(bsnnm!="" && bsnnm != null) this.bsnnm = bsnnm; else this.bsnnm = "-";
+        if(bsncd!="" && bsncd != null) this.bsncd = bsncd; else this.bsncd = "-";
+        if(deodoriyn!="" && deodoriyn != null) this.deodoriyn = deodoriyn; else this.deodoriyn = "-";
+        if(elecppyn!="" && elecppyn != null) this.elecppyn = elecppyn; else this.elecppyn = "-";
+        if(rainwpcnt!="" && rainwpcnt != null) this.rainwpcnt = rainwpcnt; else this.rainwpcnt = "-";
+        if(rainwpdrng!="" && rainwpdrng != null) this.rainwpdrng = rainwpdrng; else this.rainwpdrng = "-";
+        if(wastwpdrng!="" && wastwpdrng != null) this.wastwpdrng = wastwpdrng; else this.wastwpdrng = "-";
+        if(wastwpcal!="" && wastwpcal != null) this.wastwpcal = wastwpcal; else this.wastwpcal = "-";
+        if(rainwpcal!="" && rainwpcal != null) this.rainwpcal = rainwpcal; else this.rainwpcal = "-";
+        if(wastwpcnt!="" && wastwpcnt != null) this.wastwpcnt = wastwpcnt; else this.wastwpcnt = "-";
+        if(plmax!="" && plmax != null) this.plmax = plmax; else this.plmax = "-";
+        if(plmaxdrngrain!="" && plmaxdrngrain != null) this.plmaxdrngrain = plmaxdrngrain; else this.plmaxdrngrain = "-";
+        if(pumpname!="" && pumpname != null) this.pumpname = plmaxdrngrain; else this.pumpname = "-";
+        if(plmaxdrngblue!="" && plmaxdrngblue != null) this.plmaxdrngblue = plmaxdrngblue; else this.plmaxdrngblue = "-";
         if(obscd!="" && obscd != null) this.obscd = obscd; else this.obscd = "-";
         if(obsnm!="" && obsnm != null) this.obsnm = obsnm; else this.obsnm = "-";
         if(clsyn!="" && clsyn != null) this.clsyn = clsyn; else this.clsyn = "-";
@@ -220,5 +278,21 @@ public class CrawlingRequestDto {
         if(capdsy!="" && capdsy != null) this.capdsy = capdsy; else this.capdsy = "-";
         if(flqsv!="" && flqsv != null) this.flqsv = flqsv; else this.flqsv = "-";
         if(wlcd!="" && wlcd != null) this.wlcd = wlcd; else this.wlcd = "-";
+        if(admnm!="" && admnm != null) this.admnm = admnm; else this.admnm = "-";
+        if(admcd!="" && admcd != null) this.admcd = admcd; else this.admcd = "-";
+        if(estcnt!="" && estcnt != null) this.estcnt = estcnt; else this.estcnt = "-";
+        if(ecpqty!="" && ecpqty != null) this.ecpqty = ecpqty; else this.ecpqty = "-";
+        if(fullara!="" && fullara != null) this.fullara = fullara; else this.fullara = "-";
+        if(pemara!="" && pemara != null) this.pemara = pemara; else this.pemara = "-";
+        if(sumara!="" && sumara != null) this.sumara = sumara; else this.sumara = "-";
+        if(nirara!="" && nirara != null) this.nirara = nirara; else this.nirara = "-";
+        if(pirara!="" && pirara != null) this.pirara = pirara; else this.pirara = "-";
+        if(oirara!="" && oirara != null) this.oirara = oirara; else this.oirara = "-";
+        if(mtcnt!="" && mtcnt != null) this.mtcnt = mtcnt; else this.mtcnt = "-";
+        if(mxvol!="" && mxvol != null) this.mxvol = mxvol; else this.mxvol = "-";
+        if(totirara!="" && totirara != null) this.totirara = totirara; else this.totirara = "-";
+        if(itqty!="" && itqty != null) this.itqty = itqty; else this.itqty = "-";
+        if(address!="" && address != null) this.address = address; else this.address = "-";
+        if(opymd!="" && opymd != null) this.opymd = opymd; else this.opymd = "-";
     }
 }

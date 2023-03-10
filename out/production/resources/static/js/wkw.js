@@ -22,6 +22,14 @@ var main = {
             _this.searchW17();
         });
 
+        $('#btnSearchW18').on('click', function(){
+            _this.searchW18();
+        });
+
+        $('#btnSearchW19').on('click', function(){
+            _this.searchW19();
+        });
+
     },
     searchW16 : function () {
         var data = {
@@ -59,6 +67,57 @@ var main = {
         $.ajax({
             type: 'POST',
             url: '/wkw/search/w17',
+            //dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            beforeSend : function(){
+                //location.reload();
+
+            },
+            success: function (result){
+                //alert(result);
+                document.write(result);
+            }
+        }).done(function() {
+
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+    searchW18 : function () {
+        var data = {
+            basin: $('#basin').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/wkw/search/w18',
+            //dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            beforeSend : function(){
+                //location.reload();
+
+            },
+            success: function (result){
+                //alert(result);
+                document.write(result);
+            }
+        }).done(function() {
+
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+    searchW19 : function () {
+        var data = {
+            obscd: $('#obscd').val(),
+            year: $('#year').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/wkw/search/w19',
             //dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data),
