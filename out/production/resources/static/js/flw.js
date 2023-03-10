@@ -14,32 +14,26 @@ var main = {
             _this.save();
         });
 
-        $('#btnSearchW16').on('click', function(){
-            _this.searchW16();
+        $('#btnSearchW14').on('click', function(){
+            _this.searchW14();
         });
 
-        $('#btnSearchW17').on('click', function(){
-            _this.searchW17();
-        });
-
-        $('#btnSearchW18').on('click', function(){
-            _this.searchW18();
-        });
-
-        $('#btnSearchW19').on('click', function(){
-            _this.searchW19();
+        $('#btnSearchW15').on('click', function(){
+            _this.searchW15();
         });
 
     },
-    searchW16 : function () {
+    searchW14 : function () {
         var data = {
             basin: $('#basin option:selected').val(),
-            mngorg: $('#mngorg option:selected').val()
+            mngorg: $('#mngorg option:selected').val(),
+            keynm: $('#keynm').val(),
+            sort: $('#sort option:selected').val()
         };
 
         $.ajax({
             type: 'POST',
-            url: '/wkw/search/w16',
+            url: '/flw/search/w14',
             //dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data),
@@ -57,59 +51,7 @@ var main = {
             alert(JSON.stringify(error));
         });
     },
-    searchW17 : function () {
-        var data = {
-            obscd: $('#obscd').val(),
-            startyear: $('#startyear').val(),
-            endyear: $('#endyear').val()
-        };
-
-        $.ajax({
-            type: 'POST',
-            url: '/wkw/search/w17',
-            //dataType: 'json',
-            contentType:'application/json; charset=utf-8',
-            data: JSON.stringify(data),
-            beforeSend : function(){
-                //location.reload();
-
-            },
-            success: function (result){
-                //alert(result);
-                document.write(result);
-            }
-        }).done(function() {
-
-        }).fail(function (error) {
-            alert(JSON.stringify(error));
-        });
-    },
-    searchW18 : function () {
-        var data = {
-            basin: $('#basin').val()
-        };
-
-        $.ajax({
-            type: 'POST',
-            url: '/wkw/search/w18',
-            //dataType: 'json',
-            contentType:'application/json; charset=utf-8',
-            data: JSON.stringify(data),
-            beforeSend : function(){
-                //location.reload();
-
-            },
-            success: function (result){
-                //alert(result);
-                document.write(result);
-            }
-        }).done(function() {
-
-        }).fail(function (error) {
-            alert(JSON.stringify(error));
-        });
-    },
-    searchW19 : function () {
+    searchW15 : function () {
         var data = {
             obscd: $('#obscd').val(),
             year: $('#year').val()
@@ -117,7 +59,7 @@ var main = {
 
         $.ajax({
             type: 'POST',
-            url: '/wkw/search/w19',
+            url: '/flw/search/w15',
             //dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data),

@@ -111,10 +111,15 @@ public class CrawlingRequestDto {
     private String maxyear;
     private String fw;
     private String year;
+    private String obsymdhn;
+    private String surcnt;
+    private String capdsy;
+    private String flqsv;
+    private String wlcd;
 
 
     @Builder
-    public CrawlingRequestDto(String bbsnnm, String obscd, String obsnm, String clsyn, String obsknd, String sbsncd, String mngorg, String ym, String dtrf, String obsnmeng, String opendt, String addr, String lon, String lat, String shgt, String hrdtstart, String hrdtend, String dydtstart, String dydtend, String ymdh, String rf, String ymd, String wlobscd, String mggvcd, String bbsncd, String obsopndt, String obskdcd, String rivnm, String bsnara, String rvwdt, String bedslp, String rvmjctdis, String wsrdis, String tmx, String tmy, String gdt, String wltel, String tdeyn, String mxgrd, String sistartobsdh, String siendobsdh, String olstartobsdh, String olendobsdh, String wl, String wtobscd, String obselm, String thrmlhi, String prselm, String wvmlhi, String hytmlhi, String nj, String ta, String hm, String td, String ps, String ws, String wd, String sihr1, String catot, String sdtot, String sshr1, String taavg, String tamin, String tamax, String wsavg, String wsmax, String wdmax, String hmavg, String hmmin, String evs, String evl, String catotavg, String psavg, String psmax, String psmin, String sdmax, String tdavg, String siavg, String ssavg, String opndt, String obsymd, String obssthm, String obsedhm, String stwl, String edwl, String avgwl, String rivwith, String care, String wspd, String flw, String obsway, String docnm, String minyear, String maxyear, String fw){
+    public CrawlingRequestDto(String bbsnnm, String obscd, String obsnm, String clsyn, String obsknd, String sbsncd, String mngorg, String ym, String dtrf, String obsnmeng, String opendt, String addr, String lon, String lat, String shgt, String hrdtstart, String hrdtend, String dydtstart, String dydtend, String ymdh, String rf, String ymd, String wlobscd, String mggvcd, String bbsncd, String obsopndt, String obskdcd, String rivnm, String bsnara, String rvwdt, String bedslp, String rvmjctdis, String wsrdis, String tmx, String tmy, String gdt, String wltel, String tdeyn, String mxgrd, String sistartobsdh, String siendobsdh, String olstartobsdh, String olendobsdh, String wl, String wtobscd, String obselm, String thrmlhi, String prselm, String wvmlhi, String hytmlhi, String nj, String ta, String hm, String td, String ps, String ws, String wd, String sihr1, String catot, String sdtot, String sshr1, String taavg, String tamin, String tamax, String wsavg, String wsmax, String wdmax, String hmavg, String hmmin, String evs, String evl, String catotavg, String psavg, String psmax, String psmin, String sdmax, String tdavg, String siavg, String ssavg, String opndt, String obsymd, String obssthm, String obsedhm, String stwl, String edwl, String avgwl, String rivwith, String care, String wspd, String flw, String obsway, String docnm, String minyear, String maxyear, String fw, String obsymdhn, String surcnt, String capdsy, String flqsv, String wlcd){
         if(bbsnnm!="" && bbsnnm != null) this.bbsnnm = bbsnnm; else this.bbsnnm = "-";
         if(obscd!="" && obscd != null) this.obscd = obscd; else this.obscd = "-";
         if(obsnm!="" && obsnm != null) this.obsnm = obsnm; else this.obsnm = "-";
@@ -210,5 +215,10 @@ public class CrawlingRequestDto {
         if(minyear!="" && minyear != null) this.minyear = minyear; else this.minyear = "-";
         if(maxyear!="" && maxyear != null) this.maxyear = maxyear; else this.maxyear = "-";
         if(fw!="" && fw != null) this.fw = fw; else this.fw = "-";
+        if(obsymdhn!="" && obsymdhn != null) this.obsymdhn = obsymdhn; else this.obsymdhn = "-";
+        if(surcnt!="" && surcnt != null) this.surcnt = surcnt; else this.surcnt = "-";
+        if(capdsy!="" && capdsy != null) this.capdsy = capdsy; else this.capdsy = "-";
+        if(flqsv!="" && flqsv != null) this.flqsv = flqsv; else this.flqsv = "-";
+        if(wlcd!="" && wlcd != null) this.wlcd = wlcd; else this.wlcd = "-";
     }
 }
