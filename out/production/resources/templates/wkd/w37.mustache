@@ -1,0 +1,73 @@
+{{>layout/header}}
+
+<div class="container">
+    <div class="sub-title">
+        <h4>댐수문정보 월자료</h4>
+    </div>
+
+    <div class="textAlignCenter searchBox">
+
+        <label for="damcd">관측소코드(필수) : </label>
+        <input id="damcd" type="text" style="margin-left:10px;"/>
+
+        <label for="startdt	">관측기간(시작일): </label>
+        <input id="startdt" type="text" style="margin-left:10px;"/>
+        ~
+        <label for="enddt">관측기간(종료일): </label>
+        <input id="enddt" type="text" style="margin-left:10px;"/>
+
+        <input id="btnSearchW37" type="button" class="btn btn-outline-info" style="margin-left:10px;" value="조회"/>
+    </div>
+    <div class="saveBox">
+        <a id="btnSave" href="" class="btn btn-outline-success" style="margin-left:10px;" value="csv로 저장">csv로 저장</a>
+    </div>
+    <!--목록 출력 영역-->
+    <table id="dataTable" class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+        <tr>
+            <th>관측년월</th>
+            <th>저수위 최저(EL.m)</th>
+            <th>저수위 평균</th>
+            <th>저수위 최고</th>
+            <th>유입량 최저(㎥/s)</th>
+            <th>유입량 평균</th>
+            <th>유입량 최고</th>
+            <th>총방류량 최저(㎥/s)</th>
+            <th>총방류량 평균</th>
+            <th>총방류량 최고</th>
+            <th>수문방류량 최저(㎥/s)</th>
+            <th>수문방류량 평균</th>
+            <th>수문방류량 최고</th>
+            <th>유역평균우량 최저(㎜)</th>
+            <th>유역평균우량 평균</th>
+            <th>유역평균우량 최고</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#data}}
+            <tr>
+                <td>{{obsymd}}</td>
+                <td>{{mnwl}}</td>
+                <td>{{avwl}}</td>
+                <td>{{mxwl}}</td>
+                <td>{{mniqty}}</td>
+                <td>{{aviqty}}</td>
+                <td>{{mxiqty}}</td>
+                <td>{{mntdqty}}</td>
+                <td>{{avtdqty}}</td>
+                <td>{{mxtdqty}}</td>
+                <td>{{mnsqty}}</td>
+                <td>{{avsqty}}</td>
+                <td>{{mxsqty}}</td>
+                <td>{{mnrf}}</td>
+                <td>{{avrf}}</td>
+                <td>{{mxrf}}</td>
+            </tr>
+        {{/data}}
+        </tbody>
+    </table>
+    <div style="height: 100px;"></div>
+</div>
+
+
+{{>layout/footer}}
