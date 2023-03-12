@@ -108,6 +108,16 @@ public class CrawlingService {
             paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkf/wkf_sestsiq_lst?";
         }
 
+        else if("w34".equals(dev)){ // 댐검색
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkd/mn_dammain?";
+        } else if("w35".equals(dev)){ // 제방조서자료
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkd/mn_hrdata?";
+        } else if("w36".equals(dev)){ // 내수배제시설현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkd/mn_dtdata?";
+        } else if("w37".equals(dev)){ // 배수 조서
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkd/mn_mndata?";
+        }
+
         String urlStr = paramUrl(paramUrl, param);
 
         URL url = new URL(urlStr);
@@ -398,6 +408,34 @@ public class CrawlingService {
                 String lrdv = (String) listbody.get("lrdv");
                 String estlr = (String) listbody.get("estlr");
                 String estdv = (String) listbody.get("estdv");
+                String damcd = (String) listbody.get("damcd");
+                String damnm = (String) listbody.get("damnm");
+                String obsdh = (String) listbody.get("obsdh");
+                String rwl = (String) listbody.get("rwl");
+                String ospilwl = (String) listbody.get("ospilwl");
+                String rsqty = (String) listbody.get("rsqty");
+                String rsrt = (String) listbody.get("rsrt");
+                String iqty = (String) listbody.get("iqty");
+                String etqty = (String) listbody.get("etqty");
+                String tdqty = (String) listbody.get("tdqty");
+                String edqty = (String) listbody.get("edqty");
+                String spdqty = (String) listbody.get("spdqty");
+                String otltdqty = (String) listbody.get("otltdqty");
+                String dambsarf = (String) listbody.get("dambsarf");
+                String mnwl = (String) listbody.get("mnwl");
+                String avwl = (String) listbody.get("avwl");
+                String mxwl = (String) listbody.get("mxwl");
+                String mniqty = (String) listbody.get("mniqty");
+                String aviqty = (String) listbody.get("aviqty");
+                String mxiqty = (String) listbody.get("mxiqty");
+                String mntdqty = (String) listbody.get("mntdqty");
+                String avtdqty = (String) listbody.get("avtdqty");
+                String mxtdqty = (String) listbody.get("mxtdqty");
+                String mnsqty = (String) listbody.get("mnsqty");
+                String mxsqty = (String) listbody.get("mxsqty");
+                String mnrf = (String) listbody.get("mnrf");
+                String avrf = (String) listbody.get("avrf");
+                String mxrf = (String) listbody.get("mxrf");
                 String ymdh = (String) listbody.get("ymdh");
                 if(ymdh != null)
                     ymdh = ymdh.substring(0,4) + "년 " + ymdh.substring(4,6) + "월 " + ymdh.substring(6,8) + "일 " + ymdh.substring(8,10) + "시";
@@ -410,7 +448,7 @@ public class CrawlingService {
                     ym = ym.substring(0,4) + "년 " + ym.substring(4,6) + "월";
 
 
-                CrawlingRequestDto dto = new CrawlingRequestDto(bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg, ym, dtrf, obsnmeng, opendt, addr, lon, lat, shgt, hrdtstart, hrdtend, dydtstart, dydtend, ymdh, rf, ymd, wlobscd, mggvcd, bbsncd, obsopndt, obskdcd, rivnm, bsnara, rvwdt, bedslp, rvmjctdis, wsrdis, tmx, tmy, gdt, wltel, tdeyn, mxgrd, sistartobsdh, siendobsdh, olstartobsdh, olendobsdh, wl, wtobscd, obselm, thrmlhi, prselm, wvmlhi, hytmlhi, nj, ta, hm, td, ps, ws, wd, sihr1, catot, sdtot, sshr1, taavg, tamin, tamax, wsavg, wsmax, wdmax, hmavg, hmmin, evs, evl, catotavg, psavg, psmax, psmin, sdmax, tdavg, siavg, ssavg, opndt, obsymd, obssthm, obsedhm, stwl, edwl, avgwl, rivwith, care, wspd, flw, obsway, docnm, minyear, maxyear, fw, obsymdhn, surcnt, capdsy, flqsv, wlcd, admnm, admcd, estcnt, ecpqty, fullara, pemara, sumara, nirara, pirara, oirara, mtcnt, mxvol, totirara, itqty, address, opymd, plmaxdrngblue, plmaxdrngrain, pumpname, plmax, wastwpcnt, rainwpcal, wastwpcal, wastwpdrng, rainwpdrng, rainwpcnt, elecppyn, deodoriyn, bsncd, bsnnm, drfq, edyr, estnm, esttype, mggvnm, mwsnm, wsdv, bankcd, banklr, banknm, bankwith, ebmttp, edaddr, edch, inslp, len, outslp, plfwl, plfwv, plrivwith,rivdv, staddr, stch, stchm, stchs, edchm, edchs, sttmx, sttmy, edtmx, edtmy, outstn, instn, gatecnt, pgatecnt, pipecnt, pumtcnt, bodysf, etcsf, mngrdtp, bkrdtp, hgebmttp, hgebmtst, bedtp, bedst, lwebmttp, lwebmtst, waystn, crstp, bedsoil, mnggv, estcd, ndvol, ofara, pumpvol, rivlevl, rndl, strtp, mpnt, etcitm, pumplr, eststs, chain, lrdv, estlr, estdv);
+                CrawlingRequestDto dto = new CrawlingRequestDto(bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg, ym, dtrf, obsnmeng, opendt, addr, lon, lat, shgt, hrdtstart, hrdtend, dydtstart, dydtend, ymdh, rf, ymd, wlobscd, mggvcd, bbsncd, obsopndt, obskdcd, rivnm, bsnara, rvwdt, bedslp, rvmjctdis, wsrdis, tmx, tmy, gdt, wltel, tdeyn, mxgrd, sistartobsdh, siendobsdh, olstartobsdh, olendobsdh, wl, wtobscd, obselm, thrmlhi, prselm, wvmlhi, hytmlhi, nj, ta, hm, td, ps, ws, wd, sihr1, catot, sdtot, sshr1, taavg, tamin, tamax, wsavg, wsmax, wdmax, hmavg, hmmin, evs, evl, catotavg, psavg, psmax, psmin, sdmax, tdavg, siavg, ssavg, opndt, obsymd, obssthm, obsedhm, stwl, edwl, avgwl, rivwith, care, wspd, flw, obsway, docnm, minyear, maxyear, fw, obsymdhn, surcnt, capdsy, flqsv, wlcd, admnm, admcd, estcnt, ecpqty, fullara, pemara, sumara, nirara, pirara, oirara, mtcnt, mxvol, totirara, itqty, address, opymd, plmaxdrngblue, plmaxdrngrain, pumpname, plmax, wastwpcnt, rainwpcal, wastwpcal, wastwpdrng, rainwpdrng, rainwpcnt, elecppyn, deodoriyn, bsncd, bsnnm, drfq, edyr, estnm, esttype, mggvnm, mwsnm, wsdv, bankcd, banklr, banknm, bankwith, ebmttp, edaddr, edch, inslp, len, outslp, plfwl, plfwv, plrivwith,rivdv, staddr, stch, stchm, stchs, edchm, edchs, sttmx, sttmy, edtmx, edtmy, outstn, instn, gatecnt, pgatecnt, pipecnt, pumtcnt, bodysf, etcsf, mngrdtp, bkrdtp, hgebmttp, hgebmtst, bedtp, bedst, lwebmttp, lwebmtst, waystn, crstp, bedsoil, mnggv, estcd, ndvol, ofara, pumpvol, rivlevl, rndl, strtp, mpnt, etcitm, pumplr, eststs, chain, lrdv, estlr, estdv, damcd, damnm, obsdh, rwl, ospilwl, rsqty, rsrt, iqty, etqty, tdqty, edqty, spdqty, otltdqty, dambsarf, mnwl, avwl, mxwl, mniqty, aviqty, mxiqty, mntdqty, avtdqty, mxtdqty, mnsqty, mxsqty, mnrf, avrf, mxrf);
                 crawlingRequestDtoList.add(dto);
 
                 //writer.writeNext(new String[] {bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg});
