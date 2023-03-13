@@ -132,6 +132,26 @@ public class CrawlingService {
             paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_agrwtaa_lst?";
         }
 
+        else if("w44".equals(dev)){ // 광역 및 공업용수도 취수장시설 현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_wiplsaa_lst?";
+        } else if("w45".equals(dev)){ // 광역 및 공업용수도 정수장시설 현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_wcwpsaa_lst?";
+        } else if("w46".equals(dev)){ // 광역 및 공업용수도 가압장시설 현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_wprsaa_lst?";
+        } else if("w48".equals(dev)){ // 지방상수도 취수장시설 현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_liplsas_lst?";
+        } else if("w49".equals(dev)){ // 지방상수도 정수장시설 현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_lcwpsas_lst?";
+        } else if("w50".equals(dev)){ // 지방상수도 가압장시설 현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_lprsas_lst?";
+        } else if("w51".equals(dev)){ // 지방상수도 배수지시설 현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_lwrsas_lst?";
+        } else if("w52".equals(dev)){ // 간이상수도
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_ewssas_lst?";
+        } else if("w53".equals(dev)){ // 전용상수도
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_pwssas_lst?";
+        }
+
         String urlStr = paramUrl(paramUrl, param);
 
         URL url = new URL(urlStr);

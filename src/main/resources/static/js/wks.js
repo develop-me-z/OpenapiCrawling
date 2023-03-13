@@ -70,6 +70,42 @@ var main = {
             _this.searchW43();
         });
 
+        $('#btnSearchW44').on('click', function(){
+            _this.searchW44();
+        });
+
+        $('#btnSearchW45').on('click', function(){
+            _this.searchW45();
+        });
+
+        $('#btnSearchW46').on('click', function(){
+            _this.searchW46();
+        });
+
+        $('#btnSearchW48').on('click', function(){
+            _this.searchW48();
+        });
+
+        $('#btnSearchW49').on('click', function(){
+            _this.searchW49();
+        });
+
+        $('#btnSearchW50').on('click', function(){
+            _this.searchW50();
+        });
+
+        $('#btnSearchW51').on('click', function(){
+            _this.searchW51();
+        });
+
+        $('#btnSearchW52').on('click', function(){
+            _this.searchW52();
+        });
+
+        $('#btnSearchW53').on('click', function(){
+            _this.searchW53();
+        });
+
     },
     searchW20 : function () {
         var data = {
@@ -418,6 +454,240 @@ var main = {
         $.ajax({
             type: 'POST',
             url: '/wks/search/w43',
+            //dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            beforeSend : function(){
+                //location.reload();
+
+            },
+            success: function (result){
+                //alert(result);
+                document.write(result);
+            }
+        }).done(function() {
+
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+    searchW44 : function () {
+        var data = {
+            admcd: $('#admcd option:selected').val(),
+            basin: $('#basin option:selected').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/wks/search/w44',
+            //dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            beforeSend : function(){
+                //location.reload();
+
+            },
+            success: function (result){
+                //alert(result);
+                document.write(result);
+            }
+        }).done(function() {
+
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+    searchW45 : function () {
+        var data = {
+            admcd: $('#admcd option:selected').val(),
+            basin: $('#basin option:selected').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/wks/search/w45',
+            //dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            beforeSend : function(){
+                //location.reload();
+
+            },
+            success: function (result){
+                //alert(result);
+                document.write(result);
+            }
+        }).done(function() {
+
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+    searchW46 : function () {
+        var data = {
+            admcd: $('#admcd option:selected').val(),
+            basin: $('#basin option:selected').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/wks/search/w46',
+            //dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            beforeSend : function(){
+                //location.reload();
+
+            },
+            success: function (result){
+                //alert(result);
+                document.write(result);
+            }
+        }).done(function() {
+
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+    searchW48 : function () {
+        var data = {
+            admcd: $('#admcd option:selected').val(),
+            basin: $('#basin option:selected').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/wks/search/w48',
+            //dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            beforeSend : function(){
+                //location.reload();
+
+            },
+            success: function (result){
+                //alert(result);
+                document.write(result);
+            }
+        }).done(function() {
+
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+    searchW49 : function () {
+        var data = {
+            admcd: $('#admcd option:selected').val(),
+            basin: $('#basin option:selected').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/wks/search/w49',
+            //dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            beforeSend : function(){
+                //location.reload();
+
+            },
+            success: function (result){
+                //alert(result);
+                document.write(result);
+            }
+        }).done(function() {
+
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+    searchW50 : function () {
+        var data = {
+            admcd: $('#admcd option:selected').val(),
+            basin: $('#basin option:selected').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/wks/search/w50',
+            //dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            beforeSend : function(){
+                //location.reload();
+
+            },
+            success: function (result){
+                //alert(result);
+                document.write(result);
+            }
+        }).done(function() {
+
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+    searchW51 : function () {
+        var data = {
+            admcd: $('#admcd option:selected').val(),
+            basin: $('#basin option:selected').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/wks/search/w51',
+            //dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            beforeSend : function(){
+                //location.reload();
+
+            },
+            success: function (result){
+                //alert(result);
+                document.write(result);
+            }
+        }).done(function() {
+
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+    searchW52 : function () {
+        var data = {
+            admcd: $('#admcd option:selected').val(),
+            basin: $('#basin option:selected').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/wks/search/w52',
+            //dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            beforeSend : function(){
+                //location.reload();
+
+            },
+            success: function (result){
+                //alert(result);
+                document.write(result);
+            }
+        }).done(function() {
+
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+    searchW53 : function () {
+        var data = {
+            admcd: $('#admcd option:selected').val(),
+            basin: $('#basin option:selected').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/wks/search/w53',
             //dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data),

@@ -160,6 +160,96 @@ public class WksController {
         return "wks/w43";
     }
 
+    @GetMapping("/w44")
+    public String w44(Model model) throws Exception {
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w44",dto);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "wks/w44";
+    }
+
+    @GetMapping("/w45")
+    public String w45(Model model) throws Exception {
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w45",dto);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "wks/w45";
+    }
+
+    @GetMapping("/w46")
+    public String w46(Model model) throws Exception {
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w46",dto);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "wks/w46";
+    }
+
+    @GetMapping("/w48")
+    public String w48(Model model) throws Exception {
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w48",dto);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "wks/w48";
+    }
+
+    @GetMapping("/w49")
+    public String w49(Model model) throws Exception {
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w49",dto);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "wks/w49";
+    }
+
+    @GetMapping("/w50")
+    public String w50(Model model) throws Exception {
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w50",dto);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "wks/w50";
+    }
+
+    @GetMapping("/w51")
+    public String w51(Model model) throws Exception {
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w51",dto);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "wks/w51";
+    }
+
+    @GetMapping("/w52")
+    public String w52(Model model) throws Exception {
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w52",dto);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "wks/w52";
+    }
+
+    @GetMapping("/w53")
+    public String w53(Model model) throws Exception {
+        CrawlingRequestDto dto = new CrawlingRequestDto();
+
+        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w53",dto);
+        model.addAttribute("data", crawlingRequestDtoList);
+
+        return "wks/w53";
+    }
+
 
     @PostMapping("/search/w20")
     public String searchW20Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {

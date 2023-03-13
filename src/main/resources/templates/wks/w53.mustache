@@ -1,0 +1,88 @@
+{{>layout/header}}
+
+<div class="container">
+    <div class="sub-title">
+        <h4>전용상수도</h4>
+    </div>
+
+    <div class="textAlignCenter searchBox">
+        <label for="admcd"> 행정구역 : </label>
+        <select id="admcd">
+            <option value="">전체</option>
+            <option value="11">서울특별시</option>
+            <option value="26">부산광역시</option>
+            <option value="27">대구광역시</option>
+            <option value="28">인천광역시</option>
+            <option value="29">광주광역시</option>
+            <option value="30">대전광역시</option>
+            <option value="31">울산광역시</option>
+            <option value="41">경기도</option>
+            <option value="42">강원도</option>
+            <option value="43">충청북도</option>
+            <option value="44">충청남도</option>
+            <option value="45">전라북도</option>
+            <option value="46">전라남도</option>
+            <option value="47">경상북도</option>
+            <option value="48">경상남도</option>
+            <option value="50">제주특별자치도</option>
+        </select>
+
+        <label for="basin">권역 :</label>
+        <select id="basin">
+            <option value="">전체</option>
+            <option value="1">한강</option>
+            <option value="2">낙동강</option>
+            <option value="3">금강</option>
+            <option value="4">섬진강</option>
+            <option value="5">영산강</option>
+            <option value="6">제주도</option>
+        </select>
+
+        <input id="btnSearchW53" type="button" class="btn btn-outline-info" style="margin-left:10px;" value="조회"/>
+    </div>
+    <div class="saveBox">
+        <a id="btnSave" href="" class="btn btn-outline-success" style="margin-left:10px;" value="csv로 저장">csv로 저장</a>
+    </div>
+    <!--목록 출력 영역-->
+    <table id="dataTable" class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+        <tr>
+            <th>위치</th>
+            <th>표준 유역코드</th>
+            <th>표준 유역명</th>
+            <th>일사용량</th>
+            <th>준공년도</th>
+            <th>시설명</th>
+            <th>시설용량</th>
+            <th>수원종류</th>
+            <th>1인1일 급수량</th>
+            <th>급수인구</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#data}}
+            <tr>
+                <td>{{addr}}</td>
+                <td>{{bsncd}}</td>
+                <td>{{bsnnm}}</td>
+                <td>{{dayuse}}</td>
+                <td>{{edyr}}</td>
+                <td>{{estnm}}</td>
+                <td>{{estvol}}</td>
+                <td>{{rstype}}</td>
+                <td>{{wsmd}}</td>
+                <td>{{wspop}}</td>
+            </tr>
+        {{/data}}
+        {{^data}}
+            <tr>
+                <td colspan="10">해당 데이터가 없습니다.</td>
+            </tr>
+        {{/data}}
+        </tbody>
+    </table>
+    <div style="height: 100px;"></div>
+</div>
+
+
+{{>layout/footer}}
