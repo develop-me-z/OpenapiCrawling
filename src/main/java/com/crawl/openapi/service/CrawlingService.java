@@ -1,6 +1,7 @@
 package com.crawl.openapi.service;
 
 import com.crawl.openapi.web.dto.CrawlingRequestDto;
+import com.crawl.openapi.web.dto.WksCrawlingRequestDto;
 import com.opencsv.CSVWriter;
 
 import org.json.simple.JSONArray;
@@ -25,6 +26,7 @@ public class CrawlingService {
         StringBuilder result = new StringBuilder();
 
         String paramUrl = null;
+        String menu = null;
 
         if("w1".equals(dev)){ // 강수량 관측소 검색
             paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wkw/rf_dubrfobs?";
@@ -167,9 +169,58 @@ public class CrawlingService {
         }
         urlConnection.disconnect();
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = Crawler(result.toString());
 
+        List<CrawlingRequestDto> crawlingRequestDtoList = Crawler(result.toString());
         return crawlingRequestDtoList;
+
+
+    }
+
+    public List<WksCrawlingRequestDto> getWksData(String dev, WksCrawlingRequestDto param) throws Exception {
+        StringBuilder result = new StringBuilder();
+
+        String paramUrl = null;
+        String menu = null;
+
+        if("w44".equals(dev)){ // 광역 및 공업용수도 취수장시설 현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_wiplsaa_lst?";
+        } else if("w45".equals(dev)){ // 광역 및 공업용수도 정수장시설 현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_wcwpsaa_lst?";
+        } else if("w46".equals(dev)){ // 광역 및 공업용수도 가압장시설 현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_wprsaa_lst?";
+        } else if("w48".equals(dev)){ // 지방상수도 취수장시설 현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_liplsas_lst?";
+        } else if("w49".equals(dev)){ // 지방상수도 정수장시설 현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_lcwpsas_lst?";
+        } else if("w50".equals(dev)){ // 지방상수도 가압장시설 현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_lprsas_lst?";
+        } else if("w51".equals(dev)){ // 지방상수도 배수지시설 현황
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_lwrsas_lst?";
+        } else if("w52".equals(dev)){ // 간이상수도
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_ewssas_lst?";
+        } else if("w53".equals(dev)){ // 전용상수도
+            paramUrl = "http://www.wamis.go.kr:8080/wamis/openapi/wks/wks_pwssas_lst?";
+        }
+
+        String urlStr = paramWksUrl(paramUrl, param);
+
+        URL url = new URL(urlStr);
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        urlConnection.setRequestMethod("GET");
+        BufferedReader br;
+        br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(),"UTF-8"));
+
+        String returnLine;
+
+        while((returnLine = br.readLine()) != null){
+            result.append(returnLine+"\n\r");
+        }
+        urlConnection.disconnect();
+
+
+        List<WksCrawlingRequestDto> crawlingRequestDtoList = WksCrawler(result.toString());
+        return crawlingRequestDtoList;
+
     }
 
     public String paramUrl(String url, CrawlingRequestDto param){
@@ -237,6 +288,24 @@ public class CrawlingService {
         }
         if(damcd!=null) {
             if(!"".equals(damcd)) urlStr += "&damcd="+damcd;
+        }
+
+        return urlStr;
+    }
+
+    public String paramWksUrl(String url, WksCrawlingRequestDto param){
+
+        String urlStr = url;
+
+        String basin = param.getBasin();
+        String admcd = param.getAdmcd();
+
+
+        if(basin!=null){
+            if(!"".equals(basin)) urlStr += "&basin="+basin;
+        }
+        if(admcd!=null) {
+            if(!"".equals(admcd)) urlStr += "&admcd="+admcd;
         }
 
         return urlStr;
@@ -503,6 +572,59 @@ public class CrawlingService {
 
 
                 CrawlingRequestDto dto = new CrawlingRequestDto(bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg, ym, dtrf, obsnmeng, opendt, addr, lon, lat, shgt, hrdtstart, hrdtend, dydtstart, dydtend, ymdh, rf, ymd, wlobscd, mggvcd, bbsncd, obsopndt, obskdcd, rivnm, bsnara, rvwdt, bedslp, rvmjctdis, wsrdis, tmx, tmy, gdt, wltel, tdeyn, mxgrd, sistartobsdh, siendobsdh, olstartobsdh, olendobsdh, wl, wtobscd, obselm, thrmlhi, prselm, wvmlhi, hytmlhi, nj, ta, hm, td, ps, ws, wd, sihr1, catot, sdtot, sshr1, taavg, tamin, tamax, wsavg, wsmax, wdmax, hmavg, hmmin, evs, evl, catotavg, psavg, psmax, psmin, sdmax, tdavg, siavg, ssavg, opndt, obsymd, obssthm, obsedhm, stwl, edwl, avgwl, rivwith, care, wspd, flw, obsway, docnm, minyear, maxyear, fw, obsymdhn, surcnt, capdsy, flqsv, wlcd, admnm, admcd, estcnt, ecpqty, fullara, pemara, sumara, nirara, pirara, oirara, mtcnt, mxvol, totirara, itqty, address, opymd, plmaxdrngblue, plmaxdrngrain, pumpname, plmax, wastwpcnt, rainwpcal, wastwpcal, wastwpdrng, rainwpdrng, rainwpcnt, elecppyn, deodoriyn, bsncd, bsnnm, drfq, edyr, estnm, esttype, mggvnm, mwsnm, wsdv, bankcd, banklr, banknm, bankwith, ebmttp, edaddr, edch, inslp, len, outslp, plfwl, plfwv, plrivwith,rivdv, staddr, stch, stchm, stchs, edchm, edchs, sttmx, sttmy, edtmx, edtmy, outstn, instn, gatecnt, pgatecnt, pipecnt, pumtcnt, bodysf, etcsf, mngrdtp, bkrdtp, hgebmttp, hgebmtst, bedtp, bedst, lwebmttp, lwebmtst, waystn, crstp, bedsoil, mnggv, estcd, ndvol, ofara, pumpvol, rivlevl, rndl, strtp, mpnt, etcitm, pumplr, eststs, chain, lrdv, estlr, estdv, damcd, damnm, obsdh, rwl, ospilwl, rsqty, rsrt, iqty, etqty, tdqty, edqty, spdqty, otltdqty, dambsarf, mnwl, avwl, mxwl, mniqty, aviqty, mxiqty, mntdqty, avtdqty, mxtdqty, mnsqty, mxsqty, mnrf, avrf, mxrf, avsqty, year, total, wssum, indsum, afsum, wstot, wsuse, eluse, etuse, tsum, pwsu, fwsu, totflnd, totpdy, totls);
+                crawlingRequestDtoList.add(dto);
+
+                //writer.writeNext(new String[] {bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg});
+            }
+        }
+
+        return crawlingRequestDtoList;
+        //writer.close();
+    }
+
+    public List<WksCrawlingRequestDto> WksCrawler(String str) throws Exception {
+        JSONParser jsonParser = new JSONParser();
+        JSONObject jsonObject = (JSONObject) jsonParser.parse(str);
+        JSONArray lists = (JSONArray) jsonObject.get("list");
+        List<WksCrawlingRequestDto> crawlingRequestDtoList = new ArrayList<>();
+
+        //CSVWriter writer = new CSVWriter(new FileWriter("./src/main/resources/static/csv/rfw1.csv"));
+
+        if(lists!=null){
+            for(int i=0; i<lists.size(); i++){
+                JSONObject listbody= (JSONObject) lists.get(i);
+
+                String afest = (String) listbody.get("afest");
+                String cptyr = (String) listbody.get("cptyr");
+                String estvol = (String) listbody.get("estvol");
+                String spara = (String) listbody.get("spara");
+                String usg = (String) listbody.get("usg");
+                String wstype = (String) listbody.get("wstype");
+                String bfest = (String) listbody.get("bfest");
+                String cwtype = (String) listbody.get("cwtype");
+                String cnt = (String) listbody.get("cnt");
+                String hp = (String) listbody.get("hp");
+                String phg = (String) listbody.get("phg");
+                String type = (String) listbody.get("type");
+                String elev = (String) listbody.get("elev");
+                String emghr = (String) listbody.get("emghr");
+                String mnws = (String) listbody.get("mnws");
+                String mxws = (String) listbody.get("mxws");
+                String wsara = (String) listbody.get("wsara");
+                String dayuse = (String) listbody.get("dayuse");
+                String rstype = (String) listbody.get("rstype");
+                String wspop = (String) listbody.get("wspop");
+                String wsmd = (String) listbody.get("wsmd");
+                String addr = (String) listbody.get("addr");
+                String bsncd = (String) listbody.get("bsncd");
+                String bsnnm = (String) listbody.get("bsnnm");
+                String edyr = (String) listbody.get("edyr");
+                String estnm = (String) listbody.get("estnm");
+                String rivnm = (String) listbody.get("rivnm");
+                String estdv = (String) listbody.get("estdv");
+
+
+                WksCrawlingRequestDto dto = new WksCrawlingRequestDto(afest, cptyr, estvol, spara, usg, wstype, bfest, cwtype, cnt, hp, phg, type, elev, emghr, mnws, mxws, wsara, dayuse, rstype, wspop, wsmd, addr, bsncd, bsnnm, edyr, estnm, rivnm, estdv);
                 crawlingRequestDtoList.add(dto);
 
                 //writer.writeNext(new String[] {bbsnnm, obscd, obsnm, clsyn, obsknd, sbsncd, mngorg});
