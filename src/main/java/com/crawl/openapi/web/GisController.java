@@ -8,12 +8,11 @@ import com.crawl.openapi.web.dto.WksCrawlingRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.awt.*;
+import java.net.URI;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -29,7 +28,7 @@ public class GisController {
         return "gis/radar";
     }
 
-
+    @CrossOrigin(origins="*", methods = RequestMethod.POST)
     @PostMapping("/search/radar")
     public ModelAndView searchRadarData(@RequestBody RadarCrawlingRequestDto param) throws Exception {
 
