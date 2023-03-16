@@ -1,7 +1,9 @@
 package com.crawl.openapi.web;
 
 import com.crawl.openapi.service.CrawlingService;
+import com.crawl.openapi.service.WeCrawlingService;
 import com.crawl.openapi.web.dto.CrawlingRequestDto;
+import com.crawl.openapi.web.dto.WeCrawlingRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,13 +20,13 @@ import java.util.List;
 @RequestMapping("we")
 public class WeController {
 
-    private final CrawlingService crawlingService;
+    private final WeCrawlingService crawlingService;
 
     @GetMapping("/w10")
     public String w10(Model model) throws Exception {
-        CrawlingRequestDto dto = new CrawlingRequestDto();
+        WeCrawlingRequestDto dto = new WeCrawlingRequestDto();
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w10",dto);
+        List<WeCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWeData("w10",dto);
         model.addAttribute("data", crawlingRequestDtoList);
 
         return "we/w10";
@@ -50,11 +52,11 @@ public class WeController {
 
     //@ResponseBody
     @PostMapping("/search/w10")
-    public String searchRfW1Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+    public String searchRfW1Data(Model model, @RequestBody WeCrawlingRequestDto param) throws Exception {
 
         ModelAndView mav = new ModelAndView("we/w10");
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w10",param);
+        List<WeCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWeData("w10",param);
         //mav.addObject("data", crawlingRequestDtoList);
         model.addAttribute("data", crawlingRequestDtoList);
 
@@ -63,11 +65,11 @@ public class WeController {
     }
 
     @PostMapping("/search/w11")
-    public String searchRfW2Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+    public String searchRfW2Data(Model model, @RequestBody WeCrawlingRequestDto param) throws Exception {
 
         ModelAndView mav = new ModelAndView("we/w11");
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w11",param);
+        List<WeCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWeData("w11",param);
         //mav.addObject("data", crawlingRequestDtoList);
         model.addAttribute("data", crawlingRequestDtoList);
 
@@ -76,11 +78,11 @@ public class WeController {
     }
 
     @PostMapping("/search/w12")
-    public String searchRfW3Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+    public String searchRfW3Data(Model model, @RequestBody WeCrawlingRequestDto param) throws Exception {
 
         ModelAndView mav = new ModelAndView("we/w12");
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w12",param);
+        List<WeCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWeData("w12",param);
         //mav.addObject("data", crawlingRequestDtoList);
         model.addAttribute("data", crawlingRequestDtoList);
 
@@ -89,11 +91,11 @@ public class WeController {
     }
 
     @PostMapping("/search/w13")
-    public String searchRfW4Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+    public String searchRfW4Data(Model model, @RequestBody WeCrawlingRequestDto param) throws Exception {
 
         ModelAndView mav = new ModelAndView("we/w13");
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w13",param);
+        List<WeCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWeData("w13",param);
         //mav.addObject("data", crawlingRequestDtoList);
         model.addAttribute("data", crawlingRequestDtoList);
 
