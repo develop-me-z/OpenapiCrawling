@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class WksCrawlingRequestDto {
+public class WksCrawlingRequestDto { // 수도시설
     private String admcd;
     private String basin;
     private String afest;
