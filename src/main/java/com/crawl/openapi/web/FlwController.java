@@ -1,7 +1,8 @@
 package com.crawl.openapi.web;
 
-import com.crawl.openapi.service.CrawlingService;
+import com.crawl.openapi.service.FlwCrawlingService;
 import com.crawl.openapi.web.dto.CrawlingRequestDto;
+import com.crawl.openapi.web.dto.FlwCrawlingRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,13 +19,13 @@ import java.util.List;
 @RequestMapping("flw")
 public class FlwController {
 
-    private final CrawlingService crawlingService;
+    private final FlwCrawlingService crawlingService;
 
     @GetMapping("/w14")
     public String w14(Model model) throws Exception {
-        CrawlingRequestDto dto = new CrawlingRequestDto();
+        FlwCrawlingRequestDto dto = new FlwCrawlingRequestDto();
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w14",dto);
+        List<FlwCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getFlwData("w14",dto);
         model.addAttribute("data", crawlingRequestDtoList);
 
         return "flw/w14";
@@ -39,11 +40,11 @@ public class FlwController {
 
     //@ResponseBody
     @PostMapping("/search/w14")
-    public String searchRfW1Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+    public String searchRfW1Data(Model model, @RequestBody FlwCrawlingRequestDto param) throws Exception {
 
         ModelAndView mav = new ModelAndView("flw/w14");
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w14",param);
+        List<FlwCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getFlwData("w14",param);
         //mav.addObject("data", crawlingRequestDtoList);
         model.addAttribute("data", crawlingRequestDtoList);
 
@@ -52,11 +53,11 @@ public class FlwController {
     }
 
     @PostMapping("/search/w15")
-    public String searchRfW2Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+    public String searchRfW2Data(Model model, @RequestBody FlwCrawlingRequestDto param) throws Exception {
 
         ModelAndView mav = new ModelAndView("flw/w15");
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w15",param);
+        List<FlwCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getFlwData("w15",param);
         //mav.addObject("data", crawlingRequestDtoList);
         model.addAttribute("data", crawlingRequestDtoList);
 
