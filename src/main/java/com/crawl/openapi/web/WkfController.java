@@ -1,7 +1,9 @@
 package com.crawl.openapi.web;
 
 import com.crawl.openapi.service.CrawlingService;
+import com.crawl.openapi.service.WkfCrawlingService;
 import com.crawl.openapi.web.dto.CrawlingRequestDto;
+import com.crawl.openapi.web.dto.WkfCrawlingRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,13 +20,13 @@ import java.util.List;
 @RequestMapping("wkf")
 public class WkfController {
 
-    private final CrawlingService crawlingService;
+    private final WkfCrawlingService crawlingService;
 
     @GetMapping("/w28")
     public String w28(Model model) throws Exception {
-        CrawlingRequestDto dto = new CrawlingRequestDto();
+        WkfCrawlingRequestDto dto = new WkfCrawlingRequestDto();
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w28",dto);
+        List<WkfCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWkfData("w28",dto);
         model.addAttribute("data", crawlingRequestDtoList);
 
         return "wkf/w28";
@@ -32,9 +34,9 @@ public class WkfController {
 
     @GetMapping("/w29")
     public String w29(Model model) throws Exception {
-        CrawlingRequestDto dto = new CrawlingRequestDto();
+        WkfCrawlingRequestDto dto = new WkfCrawlingRequestDto();
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w29",dto);
+        List<WkfCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWkfData("w29",dto);
         model.addAttribute("data", crawlingRequestDtoList);
 
         return "wkf/w29";
@@ -42,9 +44,9 @@ public class WkfController {
 
     @GetMapping("/w30")
     public String w30(Model model) throws Exception {
-        CrawlingRequestDto dto = new CrawlingRequestDto();
+        WkfCrawlingRequestDto dto = new WkfCrawlingRequestDto();
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w30",dto);
+        List<WkfCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWkfData("w30",dto);
         model.addAttribute("data", crawlingRequestDtoList);
 
         return "wkf/w30";
@@ -52,9 +54,9 @@ public class WkfController {
 
     @GetMapping("/w31")
     public String w31(Model model) throws Exception {
-        CrawlingRequestDto dto = new CrawlingRequestDto();
+        WkfCrawlingRequestDto dto = new WkfCrawlingRequestDto();
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w31",dto);
+        List<WkfCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWkfData("w31",dto);
         model.addAttribute("data", crawlingRequestDtoList);
 
         return "wkf/w31";
@@ -62,9 +64,9 @@ public class WkfController {
 
     @GetMapping("/w32")
     public String w32(Model model) throws Exception {
-        CrawlingRequestDto dto = new CrawlingRequestDto();
+        WkfCrawlingRequestDto dto = new WkfCrawlingRequestDto();
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w32",dto);
+        List<WkfCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWkfData("w32",dto);
         model.addAttribute("data", crawlingRequestDtoList);
 
         return "wkf/w32";
@@ -72,9 +74,9 @@ public class WkfController {
 
     @GetMapping("/w33")
     public String w33(Model model) throws Exception {
-        CrawlingRequestDto dto = new CrawlingRequestDto();
+        WkfCrawlingRequestDto dto = new WkfCrawlingRequestDto();
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w33",dto);
+        List<WkfCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWkfData("w33",dto);
         model.addAttribute("data", crawlingRequestDtoList);
 
         return "wkf/w33";
@@ -82,11 +84,11 @@ public class WkfController {
 
 
     @PostMapping("/search/w28")
-    public String searchW28Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+    public String searchW28Data(Model model, @RequestBody WkfCrawlingRequestDto param) throws Exception {
 
         ModelAndView mav = new ModelAndView("wkf/w28");
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w28",param);
+        List<WkfCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWkfData("w28",param);
         //mav.addObject("data", crawlingRequestDtoList);
         model.addAttribute("data", crawlingRequestDtoList);
 
@@ -95,11 +97,11 @@ public class WkfController {
     }
 
     @PostMapping("/search/w29")
-    public String searchW29Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+    public String searchW29Data(Model model, @RequestBody WkfCrawlingRequestDto param) throws Exception {
 
         ModelAndView mav = new ModelAndView("wkf/w29");
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w29",param);
+        List<WkfCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWkfData("w29",param);
         //mav.addObject("data", crawlingRequestDtoList);
         model.addAttribute("data", crawlingRequestDtoList);
 
@@ -108,11 +110,11 @@ public class WkfController {
     }
 
     @PostMapping("/search/w30")
-    public String searchW30Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+    public String searchW30Data(Model model, @RequestBody WkfCrawlingRequestDto param) throws Exception {
 
         ModelAndView mav = new ModelAndView("wkf/w30");
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w30",param);
+        List<WkfCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWkfData("w30",param);
         //mav.addObject("data", crawlingRequestDtoList);
         model.addAttribute("data", crawlingRequestDtoList);
 
@@ -121,11 +123,11 @@ public class WkfController {
     }
 
     @PostMapping("/search/w31")
-    public String searchW31Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+    public String searchW31Data(Model model, @RequestBody WkfCrawlingRequestDto param) throws Exception {
 
         ModelAndView mav = new ModelAndView("wkf/w31");
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w31",param);
+        List<WkfCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWkfData("w31",param);
         //mav.addObject("data", crawlingRequestDtoList);
         model.addAttribute("data", crawlingRequestDtoList);
 
@@ -134,11 +136,11 @@ public class WkfController {
     }
 
     @PostMapping("/search/w32")
-    public String searchW32Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+    public String searchW32Data(Model model, @RequestBody WkfCrawlingRequestDto param) throws Exception {
 
         ModelAndView mav = new ModelAndView("wkf/w32");
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w32",param);
+        List<WkfCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWkfData("w32",param);
         //mav.addObject("data", crawlingRequestDtoList);
         model.addAttribute("data", crawlingRequestDtoList);
 
@@ -147,11 +149,11 @@ public class WkfController {
     }
 
     @PostMapping("/search/w33")
-    public String searchW33Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
+    public String searchW33Data(Model model, @RequestBody WkfCrawlingRequestDto param) throws Exception {
 
         ModelAndView mav = new ModelAndView("wkf/w33");
 
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w33",param);
+        List<WkfCrawlingRequestDto> crawlingRequestDtoList = crawlingService.getWkfData("w33",param);
         //mav.addObject("data", crawlingRequestDtoList);
         model.addAttribute("data", crawlingRequestDtoList);
 
