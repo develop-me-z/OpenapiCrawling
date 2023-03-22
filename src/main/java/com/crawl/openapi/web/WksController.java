@@ -1,6 +1,7 @@
 package com.crawl.openapi.web;
 
 import com.crawl.openapi.service.CrawlingService;
+import com.crawl.openapi.service.WksCrawlingService;
 import com.crawl.openapi.web.dto.CrawlingRequestDto;
 import com.crawl.openapi.web.dto.WksCrawlingRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -19,68 +20,9 @@ import java.util.List;
 @RequestMapping("wks")
 public class WksController {
 
-    private final CrawlingService crawlingService;
+    private final WksCrawlingService crawlingService;
 
-    @GetMapping("/w38")
-    public String w38(Model model) throws Exception {
-        CrawlingRequestDto dto = new CrawlingRequestDto();
-
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w38",dto);
-        model.addAttribute("data", crawlingRequestDtoList);
-
-        return "wks/w38";
-    }
-
-    @GetMapping("/w39")
-    public String w39(Model model) throws Exception {
-        CrawlingRequestDto dto = new CrawlingRequestDto();
-
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w39",dto);
-        model.addAttribute("data", crawlingRequestDtoList);
-
-        return "wks/w39";
-    }
-
-    @GetMapping("/w40")
-    public String w40(Model model) throws Exception {
-        CrawlingRequestDto dto = new CrawlingRequestDto();
-
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w40",dto);
-        model.addAttribute("data", crawlingRequestDtoList);
-
-        return "wks/w40";
-    }
-
-    @GetMapping("/w41")
-    public String w41(Model model) throws Exception {
-        CrawlingRequestDto dto = new CrawlingRequestDto();
-
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w41",dto);
-        model.addAttribute("data", crawlingRequestDtoList);
-
-        return "wks/w41";
-    }
-
-    @GetMapping("/w42")
-    public String w42(Model model) throws Exception {
-        CrawlingRequestDto dto = new CrawlingRequestDto();
-
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w42",dto);
-        model.addAttribute("data", crawlingRequestDtoList);
-
-        return "wks/w42";
-    }
-
-    @GetMapping("/w43")
-    public String w43(Model model) throws Exception {
-        CrawlingRequestDto dto = new CrawlingRequestDto();
-
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w43",dto);
-        model.addAttribute("data", crawlingRequestDtoList);
-
-        return "wks/w43";
-    }
-
+    // 수도시설
     @GetMapping("/w44")
     public String w44(Model model) throws Exception {
         WksCrawlingRequestDto dto = new WksCrawlingRequestDto();
@@ -171,84 +113,6 @@ public class WksController {
         return "wks/w53";
     }
 
-
-    @PostMapping("/search/w38")
-    public String searchW38Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
-
-        ModelAndView mav = new ModelAndView("wks/w38");
-
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w38",param);
-        //mav.addObject("data", crawlingRequestDtoList);
-        model.addAttribute("data", crawlingRequestDtoList);
-
-        //return model;
-        return "wks/w38";
-    }
-
-    @PostMapping("/search/w39")
-    public String searchW39Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
-
-        ModelAndView mav = new ModelAndView("wks/w39");
-
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w39",param);
-        //mav.addObject("data", crawlingRequestDtoList);
-        model.addAttribute("data", crawlingRequestDtoList);
-
-        //return model;
-        return "wks/w39";
-    }
-
-    @PostMapping("/search/w40")
-    public String searchW40Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
-
-        ModelAndView mav = new ModelAndView("wks/w40");
-
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w40",param);
-        //mav.addObject("data", crawlingRequestDtoList);
-        model.addAttribute("data", crawlingRequestDtoList);
-
-        //return model;
-        return "wks/w40";
-    }
-
-    @PostMapping("/search/w41")
-    public String searchW41Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
-
-        ModelAndView mav = new ModelAndView("wks/w41");
-
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w41",param);
-        //mav.addObject("data", crawlingRequestDtoList);
-        model.addAttribute("data", crawlingRequestDtoList);
-
-        //return model;
-        return "wks/w41";
-    }
-
-    @PostMapping("/search/w42")
-    public String searchW42Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
-
-        ModelAndView mav = new ModelAndView("wks/w42");
-
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w42",param);
-        //mav.addObject("data", crawlingRequestDtoList);
-        model.addAttribute("data", crawlingRequestDtoList);
-
-        //return model;
-        return "wks/w42";
-    }
-
-    @PostMapping("/search/w43")
-    public String searchW43Data(Model model, @RequestBody CrawlingRequestDto param) throws Exception {
-
-        ModelAndView mav = new ModelAndView("wks/w43");
-
-        List<CrawlingRequestDto> crawlingRequestDtoList = crawlingService.getRfData("w43",param);
-        //mav.addObject("data", crawlingRequestDtoList);
-        model.addAttribute("data", crawlingRequestDtoList);
-
-        //return model;
-        return "wks/w43";
-    }
 
     @PostMapping("/search/w44")
     public String searchW44Data(Model model, @RequestBody WksCrawlingRequestDto param) throws Exception {
