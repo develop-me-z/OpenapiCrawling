@@ -28,14 +28,14 @@ public class GisController {
         return "gis/radar";
     }
 
-    @CrossOrigin(origins="*", methods = RequestMethod.POST)
+    //@CrossOrigin(origins="*", methods = RequestMethod.POST)
     @PostMapping("/search/radar")
-    public ModelAndView searchRadarData(@RequestBody RadarCrawlingRequestDto param) throws Exception {
+    public String searchRadarData(Model model, @RequestBody RadarCrawlingRequestDto param) throws Exception {
 
         String url = crawlingService.getGisData("w20",param);
-        url = "redirect:"+url;
+        model.addAttribute("data", url);
 
-        return new ModelAndView("redirect:"+url);
+        return "gis/radar";
     }
 
 }
