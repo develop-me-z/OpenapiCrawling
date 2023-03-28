@@ -1,19 +1,8 @@
 package com.crawl.openapi.service;
 
-import com.crawl.openapi.web.dto.CrawlingRequestDto;
-import com.crawl.openapi.web.dto.RadarCrawlingRequestDto;
-import com.crawl.openapi.web.dto.WksCrawlingRequestDto;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import com.crawl.openapi.web.dto.RadarCrawlingRequestDto;
+import org.springframework.stereotype.Service;
 
 @Service
 public class RadarCrawlingService {
