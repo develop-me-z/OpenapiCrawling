@@ -33,6 +33,7 @@ dependencies {
 
     //compile('org.springframework.boot:spring-boot-starter-oauth2-client')
     //compile('org.springframework.session:spring-session-jdbc')
+    annotationProcessor 'org.projectlombok:lombok'
 
     compile("org.mariadb.jdbc:mariadb-java-client")
     implementation 'org.jsoup:jsoup:1.14.2' //html 가져옴
